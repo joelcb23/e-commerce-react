@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply dark:bg-gray-800 dark:text-white min-h-screen;
+}
+
+.label {
+  @apply dark:text-white block;
+}
+
+.input {
+  @apply dark:bg-gray-800 dark:text-white my-2 px-2 py-1 rounded-lg outline-none;
+}

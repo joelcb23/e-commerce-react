@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "name": "Home Theater 0",
+    "price": 391.54,
+    "stock": 66,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 4
+  },
+  {
+    "id": 2,
+    "name": "Tablet 1",
+    "price": 1637.29,
+    "stock": 32,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 3,
+    "name": "Laptop 2",
+    "price": 1805.56,
+    "stock": 9,
+    "img": "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/l1-1.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 4,
+    "name": "Laptop 3",
+    "price": 1757.57,
+    "stock": 3,
+    "img": "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/l1-1.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 5,
+    "name": "TV 4",
+    "price": 606.6,
+    "stock": 13,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 6,
+    "name": "Clothes 5",
+    "price": 107.6,
+    "stock": 26,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 7,
+    "name": "Book 0",
+    "price": 303.01,
+    "stock": 9,
+    "img": "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg",
+    "category": "Productivity",
+    "sellerId": 4
+  },
+  {
+    "id": 8,
+    "name": "Mobile 1",
+    "price": 1185.18,
+    "stock": 62,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 9,
+    "name": "Motorcycle 2",
+    "price": 2918.95,
+    "stock": 17,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 10,
+    "name": "Tablet 3",
+    "price": 1654.98,
+    "stock": 77,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 11,
+    "name": "Mobile 4",
+    "price": 1095.77,
+    "stock": 3,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 12,
+    "name": "Clothes 5",
+    "price": 182.53,
+    "stock": 60,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 13,
+    "name": "Motorcycle 0",
+    "price": 2521.86,
+    "stock": 10,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 2
+  },
+  {
+    "id": 14,
+    "name": "Motorcycle 1",
+    "price": 2508.77,
+    "stock": 57,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 15,
+    "name": "Motorcycle 2",
+    "price": 2928.64,
+    "stock": 17,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 16,
+    "name": "Mobile 3",
+    "price": 965.96,
+    "stock": 23,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 17,
+    "name": "Mobile 4",
+    "price": 1076.5,
+    "stock": 100,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 18,
+    "name": "Tablet 5",
+    "price": 1633.01,
+    "stock": 16,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 19,
+    "name": "Mobile 0",
+    "price": 963.62,
+    "stock": 89,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 20,
+    "name": "Tablet 1",
+    "price": 1257.42,
+    "stock": 3,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 21,
+    "name": "Tablet 2",
+    "price": 1578.09,
+    "stock": 7,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 22,
+    "name": "Motorcycle 3",
+    "price": 2785.51,
+    "stock": 36,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 23,
+    "name": "Tablet 4",
+    "price": 1536.97,
+    "stock": 60,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 24,
+    "name": "Motorcycle 5",
+    "price": 2230.06,
+    "stock": 8,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 25,
+    "name": "Motorcycle 0",
+    "price": 2856.33,
+    "stock": 57,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 26,
+    "name": "TV 1",
+    "price": 502.22,
+    "stock": 85,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 27,
+    "name": "Tablet 2",
+    "price": 1464.31,
+    "stock": 90,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 28,
+    "name": "Motorcycle 3",
+    "price": 2402.25,
+    "stock": 28,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 29,
+    "name": "Mobile 4",
+    "price": 992.76,
+    "stock": 12,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 30,
+    "name": "Motorcycle 5",
+    "price": 2475.34,
+    "stock": 55,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 31,
+    "name": "Motorcycle 0",
+    "price": 2254.41,
+    "stock": 58,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 32,
+    "name": "Motorcycle 1",
+    "price": 2885.23,
+    "stock": 26,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 33,
+    "name": "Book 2",
+    "price": 215.11,
+    "stock": 42,
+    "img": "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg",
+    "category": "Productivity",
+    "sellerId": 2
+  },
+  {
+    "id": 34,
+    "name": "Home Theater 3",
+    "price": 451.01,
+    "stock": 21,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 35,
+    "name": "Motorcycle 4",
+    "price": 2859.14,
+    "stock": 55,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 36,
+    "name": "Laptop 5",
+    "price": 1955,
+    "stock": 94,
+    "img": "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/l1-1.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 37,
+    "name": "Tablet 0",
+    "price": 1391.75,
+    "stock": 21,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 38,
+    "name": "Motorcycle 1",
+    "price": 2459.31,
+    "stock": 86,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 39,
+    "name": "Motorcycle 2",
+    "price": 2097.84,
+    "stock": 61,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 2
+  },
+  {
+    "id": 40,
+    "name": "Motorcycle 3",
+    "price": 2750.78,
+    "stock": 96,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 41,
+    "name": "Motorcycle 4",
+    "price": 2091.03,
+    "stock": 50,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 2
+  },
+  {
+    "id": 42,
+    "name": "Tablet 5",
+    "price": 1270.19,
+    "stock": 21,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 43,
+    "name": "Motorcycle 0",
+    "price": 2539.17,
+    "stock": 23,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 2
+  },
+  {
+    "id": 44,
+    "name": "TV 1",
+    "price": 572.18,
+    "stock": 36,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 2
+  },
+  {
+    "id": 45,
+    "name": "Clothes 2",
+    "price": 181.36,
+    "stock": 93,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 46,
+    "name": "Clothes 3",
+    "price": 85.72,
+    "stock": 40,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 47,
+    "name": "Motorcycle 4",
+    "price": 2246.22,
+    "stock": 82,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 48,
+    "name": "TV 5",
+    "price": 670.23,
+    "stock": 76,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 5
+  },
+  {
+    "id": 49,
+    "name": "TV 0",
+    "price": 584.06,
+    "stock": 76,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 5
+  },
+  {
+    "id": 50,
+    "name": "Motorcycle 1",
+    "price": 2773.48,
+    "stock": 87,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 51,
+    "name": "Motorcycle 2",
+    "price": 2711.42,
+    "stock": 72,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 52,
+    "name": "Tablet 3",
+    "price": 1630.72,
+    "stock": 60,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 53,
+    "name": "Motorcycle 4",
+    "price": 2722.87,
+    "stock": 94,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 54,
+    "name": "Motorcycle 5",
+    "price": 2267.56,
+    "stock": 67,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 55,
+    "name": "Motorcycle 0",
+    "price": 2052.58,
+    "stock": 33,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 56,
+    "name": "Clothes 1",
+    "price": 87.94,
+    "stock": 99,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 57,
+    "name": "Tablet 2",
+    "price": 1322.73,
+    "stock": 66,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 58,
+    "name": "Motorcycle 3",
+    "price": 2418.63,
+    "stock": 43,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 59,
+    "name": "Tablet 4",
+    "price": 1587.41,
+    "stock": 62,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 60,
+    "name": "Tablet 5",
+    "price": 1656.15,
+    "stock": 23,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 61,
+    "name": "Motorcycle 0",
+    "price": 2832.42,
+    "stock": 29,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 62,
+    "name": "Mobile 1",
+    "price": 1054.38,
+    "stock": 15,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 63,
+    "name": "Home Theater 2",
+    "price": 411.74,
+    "stock": 25,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 4
+  },
+  {
+    "id": 64,
+    "name": "Home Theater 3",
+    "price": 487.07,
+    "stock": 33,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 2
+  },
+  {
+    "id": 65,
+    "name": "Home Theater 4",
+    "price": 493.32,
+    "stock": 85,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 2
+  },
+  {
+    "id": 66,
+    "name": "Motorcycle 5",
+    "price": 2009.1,
+    "stock": 79,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 67,
+    "name": "Motorcycle 0",
+    "price": 2873.84,
+    "stock": 26,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 68,
+    "name": "Mobile 1",
+    "price": 1022.1,
+    "stock": 49,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 69,
+    "name": "Motorcycle 2",
+    "price": 2747.61,
+    "stock": 11,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 70,
+    "name": "Motorcycle 3",
+    "price": 2449.17,
+    "stock": 21,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 71,
+    "name": "Home Theater 4",
+    "price": 406.31,
+    "stock": 91,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 2
+  },
+  {
+    "id": 72,
+    "name": "Motorcycle 5",
+    "price": 2530.95,
+    "stock": 39,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 73,
+    "name": "Tablet 0",
+    "price": 1224.19,
+    "stock": 41,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 74,
+    "name": "Laptop 1",
+    "price": 1754.18,
+    "stock": 5,
+    "img": "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/l1-1.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 75,
+    "name": "Mobile 2",
+    "price": 861.99,
+    "stock": 59,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 76,
+    "name": "Home Theater 3",
+    "price": 495.51,
+    "stock": 65,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 77,
+    "name": "Clothes 4",
+    "price": 162.85,
+    "stock": 30,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 3
+  },
+  {
+    "id": 78,
+    "name": "Motorcycle 5",
+    "price": 2855.08,
+    "stock": 84,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 79,
+    "name": "Tablet 0",
+    "price": 1532.39,
+    "stock": 79,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 80,
+    "name": "Book 1",
+    "price": 225.36,
+    "stock": 37,
+    "img": "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg",
+    "category": "Productivity",
+    "sellerId": 4
+  },
+  {
+    "id": 81,
+    "name": "TV 2",
+    "price": 680.67,
+    "stock": 55,
+    "img": "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 82,
+    "name": "Motorcycle 3",
+    "price": 2408.57,
+    "stock": 94,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 83,
+    "name": "Tablet 4",
+    "price": 1257.02,
+    "stock": 57,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 2
+  },
+  {
+    "id": 84,
+    "name": "Motorcycle 5",
+    "price": 2279.89,
+    "stock": 41,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 2
+  },
+  {
+    "id": 85,
+    "name": "Mobile 0",
+    "price": 1126.96,
+    "stock": 16,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 3
+  },
+  {
+    "id": 86,
+    "name": "Motorcycle 1",
+    "price": 2107.94,
+    "stock": 25,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 5
+  },
+  {
+    "id": 87,
+    "name": "Motorcycle 2",
+    "price": 2984.96,
+    "stock": 41,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 88,
+    "name": "Clothes 3",
+    "price": 104.3,
+    "stock": 86,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 89,
+    "name": "Clothes 4",
+    "price": 152.09,
+    "stock": 67,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 5
+  },
+  {
+    "id": 90,
+    "name": "Tablet 5",
+    "price": 1623.51,
+    "stock": 96,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  },
+  {
+    "id": 91,
+    "name": "Motorcycle 0",
+    "price": 2429.47,
+    "stock": 55,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 92,
+    "name": "Clothes 1",
+    "price": 182.34,
+    "stock": 84,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 2
+  },
+  {
+    "id": 93,
+    "name": "Clothes 2",
+    "price": 73.53,
+    "stock": 13,
+    "img": "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg",
+    "category": "Clothing",
+    "sellerId": 4
+  },
+  {
+    "id": 94,
+    "name": "Motorcycle 3",
+    "price": 2649.79,
+    "stock": 44,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 95,
+    "name": "Tablet 4",
+    "price": 1208.97,
+    "stock": 51,
+    "img": "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg",
+    "category": "Electronics",
+    "sellerId": 4
+  },
+  {
+    "id": 96,
+    "name": "Home Theater 5",
+    "price": 439.65,
+    "stock": 59,
+    "img": "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg",
+    "category": "Furniture",
+    "sellerId": 3
+  },
+  {
+    "id": 97,
+    "name": "Motorcycle 0",
+    "price": 2706.22,
+    "stock": 8,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 98,
+    "name": "Motorcycle 1",
+    "price": 2499.21,
+    "stock": 61,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 4
+  },
+  {
+    "id": 99,
+    "name": "Motorcycle 2",
+    "price": 2355.02,
+    "stock": 19,
+    "img": "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg",
+    "category": "Vehicle",
+    "sellerId": 3
+  },
+  {
+    "id": 100,
+    "name": "Mobile 3",
+    "price": 1159.31,
+    "stock": 8,
+    "img": "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg",
+    "category": "Electronics",
+    "sellerId": 5
+  }
+]

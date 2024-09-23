@@ -1,12 +1,19 @@
 import { useEffect } from "react";
 import { useProduct } from "../context/ProductContext";
 import ProductCard from "../components/ProductCard";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const { products, getProducts } = useProduct();
+  const { products, getProducts, product, getProduct } = useProduct();
   useEffect(() => {
     getProducts();
   }, []);
+  const navigate = useNavigate();
+
+  const handleProduct = (id) => {
+    getProduct(id);
+    navigate(`/products/${id}`);
+  };
 
   return (
     <div className="">
@@ -17,7 +24,14 @@ const HomePage = () => {
         {products
           .filter((product) => product.price < 1000)
           .map(({ id, name, price, img }) => (
-            <ProductCard key={id} name={name} price={price} img={img} />
+            <ProductCard
+              key={id}
+              name={name}
+              price={price}
+              img={img}
+              id={id}
+              handleId={handleProduct}
+            />
           ))}
       </div>
     </div>

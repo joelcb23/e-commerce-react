@@ -12,6 +12,7 @@ import FormAuth from "./pages/FormAuth";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import CartPage from "./pages/CartPage";
+import ProductPage from "./pages/ProductPage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:productId" element={<ProductPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route
                 path="/login"

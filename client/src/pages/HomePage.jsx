@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const { products, getProducts, product, getProduct } = useProduct();
+  const { products, getProducts, getProduct } = useProduct();
   useEffect(() => {
     getProducts();
   }, []);

@@ -28,7 +28,6 @@ export const ProductProvider = ({ children }) => {
   const getProduct = async (id) => {
     try {
       const res = await getProductRequest(id);
-      console.log(res.data.product);
       setProduct(res.data.product);
     } catch (error) {
       console.error(error);

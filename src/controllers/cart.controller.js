@@ -59,6 +59,7 @@ export const addItemToCart = async (req, res) => {
 
     let cartItem = await prisma.cartItem.findFirst({
       where: { cartId: cart.id, productId: Number(productId) },
+      include: { product: true },
     });
     if (!cartItem) {
       cartItem = await prisma.cartItem.create({
@@ -67,6 +68,7 @@ export const addItemToCart = async (req, res) => {
           productId: Number(productId),
           quantity: Number(quantity),
         },
+        include: { product: true },
       });
       res.status(200).json({ cart, cartItem });
     } else {
@@ -77,9 +79,70 @@ export const addItemToCart = async (req, res) => {
         data: {
           quantity: cartItem.quantity + quantity,
         },
+        include: { product: true },
       });
       res.status(200).json({ cart, cartItem });
     }
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const removeItemFromCart = async (req, res) => {
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const token = cookies.token;
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = jwt.verify(token, config.SECRET);
+    req.user = decoded;
+    const userExists = await prisma.user.findUnique({
+      where: { id: Number(req.user.userId) },
+    });
+    if (!userExists) return res.status(404).json({ message: "User not found" });
+
+    const cart = await prisma.cart.findFirst({
+      where: { userId: Number(req.user.userId), isActive: true },
+    });
+    if (!cart) return res.status(404).json({ message: "Cart not found" });
+
+    const cartItem = await prisma.cartItem.delete({
+      where: {
+        id: Number(req.params.cartItemId),
+      },
+    });
+    if (!cartItem)
+      return res.status(404).json({ message: "Cart item not found" });
+
+    res.status(200).json({ cart, cartItem });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const emptyCart = async (req, res) => {
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const token = cookies.token;
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = jwt.verify(token, config.SECRET);
+    req.user = decoded;
+    const userExists = await prisma.user.findUnique({
+      where: { id: Number(req.user.userId) },
+    });
+    if (!userExists) return res.status(404).json({ message: "User not found" });
+
+    const cart = await prisma.cart.findFirst({
+      where: { userId: Number(req.user.userId), isActive: true },
+    });
+    if (!cart) return res.status(404).json({ message: "Cart not found" });
+
+    const cartItems = await prisma.cartItem.deleteMany({
+      where: { cartId: cart.id },
+    });
+
+    res.status(200).json({ cart, cartItems });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

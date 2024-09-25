@@ -37,7 +37,7 @@ export const getProductsByName = async (req, res) => {
 };
 
 export const createProduct = async (req, res) => {
-  const { name, price, stock } = req.body;
+  const { name, price, stock, img, category } = req.body;
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
@@ -53,6 +53,8 @@ export const createProduct = async (req, res) => {
         name,
         price,
         stock,
+        img,
+        category,
         sellerId: Number(req.user.userId),
       },
     });
@@ -64,7 +66,7 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   const { productId } = req.params;
-  const { name, price, stock } = req.body;
+  const { name, price, stock, img, category } = req.body;
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
@@ -87,6 +89,8 @@ export const updateProduct = async (req, res) => {
         name,
         price,
         stock,
+        img,
+        category,
       },
     });
     res.json({ product });

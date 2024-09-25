@@ -9,17 +9,17 @@ const Navbar = () => {
   const { isAuthenticated, logoutAuth } = useAuth();
   const { searchProduct } = useProduct();
   const [show, setShow] = useState(false);
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search?q=${e.target.value}`);
-
-    if (e.target.value === "") {
+    navigate(`/search?q=${search}`);
+    if (search === "") {
       navigate("/products");
     }
 
-    searchProduct(e.target.value);
+    searchProduct(search);
   };
   return (
     <nav className="flex justify-between items-center md:flex-col py-2 mb-10 text-center shadow-lg relative">
@@ -42,12 +42,15 @@ const Navbar = () => {
         ${show ? "left-0" : "left-[-100%]"}`}
       >
         <li className="w-full md:w-auto">
-          <input
-            type="text"
-            className="text-lg py-1 px-2 dark:bg-gray-900 bg-gray-200 rounded-2xl outline-none"
-            placeholder="Search..."
-            onChange={handleSearch}
-          />
+          <form onSubmit={handleSearch}>
+            <input
+              type="text"
+              className="text-lg py-1 px-2 dark:bg-gray-900 bg-gray-200 rounded-2xl outline-none"
+              placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
         </li>
         <li className="hover:border-b-2">
           <NavLink to="/" onClick={() => setShow(false)}>
@@ -61,6 +64,11 @@ const Navbar = () => {
         </li>
         {isAuthenticated ? (
           <>
+            <li className="hover:border-b-2">
+              <NavLink to="/profile" onClick={() => setShow(false)}>
+                Profile
+              </NavLink>
+            </li>
             <li className="hover:border-b-2 text-center">
               <NavLink to="/cart" onClick={() => setShow(false)}>
                 <IoCartSharp className="text-2xl text-center" />

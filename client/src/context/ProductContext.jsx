@@ -1,8 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import {
+  createProductRequest,
+  deleteProductRequest,
   getProductRequest,
   getProductsByNameRequest,
   getProductsRequest,
+  updateProductRequest,
 } from "../api/products.api";
 export const ProductContext = createContext();
 
@@ -40,9 +43,34 @@ export const ProductProvider = ({ children }) => {
 
   const searchProduct = async (search) => {
     try {
-      const res = await getProductsByNameRequest(search.toLowerCase().trim());
-      console.log(res.data.products);
+      const res = await getProductsByNameRequest(search);
       setProducts(res.data.products);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const createProduct = async (data) => {
+    try {
+      const res = await createProductRequest(data);
+      setProducts([...products, res.data.product]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const updateProduct = async (data) => {
+    try {
+      const res = await updateProductRequest(data);
+      setProducts([...products, res.data.product]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await deleteProductRequest(id);
+      setProducts(products.filter((product) => product.id !== id));
     } catch (error) {
       console.error(error);
     }
@@ -53,10 +81,13 @@ export const ProductProvider = ({ children }) => {
       value={{
         products,
         setProducts,
-        getProducts,
         product,
+        getProducts,
         getProduct,
         searchProduct,
+        createProduct,
+        updateProduct,
+        deleteProduct,
       }}
     >
       {children}

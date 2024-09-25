@@ -10,7 +10,7 @@ const ItemCart = ({ itemId, product, quantity }) => {
   };
 
   return (
-    <div className="flex gap-5 items-center dark:bg-gray-800 bg-gray-100 rounded-md p-3 relative">
+    <div className="flex gap-5 items-center dark:bg-gray-800 bg-white rounded-md p-3 relative">
       <img
         src={product.img}
         alt={`${product.name}-image`}

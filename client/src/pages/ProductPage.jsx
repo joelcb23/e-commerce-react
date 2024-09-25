@@ -51,7 +51,10 @@ const ProductPage = () => {
             value={quantity}
             className="input number-input"
           />
-          <button type="submit" className="bg-sky-500 px-3 py-1 rounded">
+          <button
+            type="submit"
+            className="bg-sky-500 hover:bg-sky-700 px-3 py-1 rounded text-white"
+          >
             Add to cart
           </button>
         </form>

@@ -1,7 +1,7 @@
 const ProductCard = ({ id, name, price, img, handleId }) => {
   return (
     <div
-      className="w-full md:w-1/3 lg:w-1/6 md:h-[250px] dark:bg-gray-900 bg-gray-300 rounded-md p-2"
+      className="w-full md:w-1/3 lg:w-1/6 md:h-[250px] dark:bg-gray-900 bg-gray-200 rounded-md p-2"
       onClick={() => handleId(id)}
     >
       <img

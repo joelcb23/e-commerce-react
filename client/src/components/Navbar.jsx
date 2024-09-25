@@ -1,12 +1,26 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 
 import { IoCartSharp, IoClose, IoLogOutSharp, IoMenu } from "react-icons/io5";
+import { useProduct } from "../context/ProductContext";
 
 const Navbar = () => {
   const { isAuthenticated, logoutAuth } = useAuth();
+  const { searchProduct } = useProduct();
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search?q=${e.target.value}`);
+
+    if (e.target.value === "") {
+      navigate("/products");
+    }
+
+    searchProduct(e.target.value);
+  };
   return (
     <nav className="flex justify-between items-center md:flex-col py-2 mb-10 text-center shadow-lg relative">
       <h1>
@@ -32,7 +46,7 @@ const Navbar = () => {
             type="text"
             className="text-lg py-1 px-2 dark:bg-gray-900 bg-gray-200 rounded-2xl outline-none"
             placeholder="Search..."
-            onChange={(e) => console.log(e.target.value)}
+            onChange={handleSearch}
           />
         </li>
         <li className="hover:border-b-2">

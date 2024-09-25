@@ -2,6 +2,9 @@ import axios from "./axios";
 
 export const getProductsRequest = async () => await axios.get("/products");
 
+export const getProductsByNameRequest = async (name) =>
+  await axios.get(`/products/search?name=${name}`);
+
 export const getProductRequest = async (id) =>
   await axios.get(`/products/${id}`);
 

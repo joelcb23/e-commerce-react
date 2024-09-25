@@ -15,20 +15,25 @@ const ProductsPage = () => {
     getProduct(id);
     navigate(`/products/${id}`);
   };
+
+  const renderProducts = () => {
+    if (!products || products.length == 0) return <h1>No Products Found</h1>;
+    return products.map(({ id, name, price, img }) => (
+      <ProductCard
+        key={id}
+        id={id}
+        name={name}
+        price={price}
+        img={img}
+        handleId={handleProduct}
+      />
+    ));
+  };
   return (
     <div className="">
       <h1 className="text-3xl font-bold text-center mb-4">List of Products</h1>
       <div className="flex flex-wrap gap-4 justify-center items-center">
-        {products.map(({ id, name, price, img }) => (
-          <ProductCard
-            key={id}
-            id={id}
-            name={name}
-            price={price}
-            img={img}
-            handleId={handleProduct}
-          />
-        ))}
+        {renderProducts()}
       </div>
     </div>
   );

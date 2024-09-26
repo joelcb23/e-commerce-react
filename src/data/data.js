@@ -1,18 +1,22 @@
 import file from "fs";
 const data = [];
+const description = `This is a description of the product. It should be at least 250 characters long.
+  Information about the product should be here.
+`;
 for (let i = 0; i < 100; i++) {
-  const price = parseFloat((Math.random() * 3000 + 1).toFixed(2));
+  const price = parseFloat((Math.random() * 2500 + 1).toFixed(2));
   const stock = Math.floor(Math.random() * 100 + 1);
+
   let name;
   let img;
   let category;
 
-  if (price < 200) {
+  if (price < 75) {
     name = "Clothes";
     img =
       "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg";
     category = "Clothing";
-  } else if (price < 350) {
+  } else if (price < 250) {
     name = "Book";
     img =
       "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg";
@@ -51,6 +55,7 @@ for (let i = 0; i < 100; i++) {
   const product = {
     id: i + 1,
     name: `${name} ${i % 6}`,
+    description,
     price,
     stock,
     img,

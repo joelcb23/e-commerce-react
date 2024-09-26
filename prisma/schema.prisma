@@ -21,18 +21,20 @@ model User {
   role      Role      @default(USER)
   itemsSold Product[]
   carts     Cart[]
+  Order     Order[]
 }
 
 model Product {
-  id        Int        @id @default(autoincrement())
-  name      String
-  price     Decimal
-  stock     Int
-  img       String
-  category  String
-  seller    User       @relation(fields: [sellerId], references: [id], onDelete: Cascade)
-  sellerId  Int
-  cartItems CartItem[]
+  id          Int        @id @default(autoincrement())
+  name        String
+  description String
+  price       Decimal
+  stock       Int
+  img         String
+  category    String
+  seller      User       @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  sellerId    Int
+  cartItems   CartItem[]
 }
 
 model Cart {
@@ -50,10 +52,29 @@ model CartItem {
   cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
   productId Int
   cartId    Int
+  order     Order?  @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  orderId   Int?
+}
+
+model Order {
+  id           Int        @id @default(autoincrement())
+  orderItems   CartItem[]
+  total        Decimal
+  deliveryDate DateTime
+  status       Status     @default(PENDING)
+  createdAt    DateTime   @default(now())
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
 }
 
 enum Role {
   ADMIN
   SELLER
   USER
+}
+
+enum Status {
+  PENDING
+  SHIPPED
+  DELIVERED
 }

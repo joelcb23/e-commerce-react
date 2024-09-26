@@ -32,11 +32,7 @@ const ProductPage = () => {
       />
       <div className="w-full md:w-1/3 flex flex-col justify-between">
         <h1 className="text-2xl font-semibold">{product.name}</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, vitae,
-          aliquid perspiciatis quidem natus maiores obcaecati, similique
-          recusandae quae quasi totam error voluptates inventore qui!
-        </p>
+        <p>{product.description}</p>
         <p className="text-xl">${product.price}</p>
         <p className="text-xl">On Stock: {product.stock}</p>
 

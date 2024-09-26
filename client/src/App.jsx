@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { ProductProvider } from "./context/ProductContext";
 import { CartProvider } from "./context/CartContext";
+import OrderProvider from "./context/OrderContext";
 
 import Navbar from "./components/Navbar";
 
@@ -23,33 +24,35 @@ const App = () => {
       <AuthProvider>
         <ProductProvider>
           <CartProvider>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/search" element={<ProductsPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/products/:productId" element={<ProductPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/profile/orders" element={<OrdersPage />} />
-              <Route path="/profile/sell-item" element={<ProductForm />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route
-                path="/login"
-                element={
-                  <FormAuth>
-                    <LoginForm />
-                  </FormAuth>
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                  <FormAuth>
-                    <SignUpForm />
-                  </FormAuth>
-                }
-              />
-            </Routes>
+            <OrderProvider>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/search" element={<ProductsPage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/products/:productId" element={<ProductPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/profile/orders" element={<OrdersPage />} />
+                <Route path="/profile/sell-item" element={<ProductForm />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route
+                  path="/login"
+                  element={
+                    <FormAuth>
+                      <LoginForm />
+                    </FormAuth>
+                  }
+                />
+                <Route
+                  path="/register"
+                  element={
+                    <FormAuth>
+                      <SignUpForm />
+                    </FormAuth>
+                  }
+                />
+              </Routes>
+            </OrderProvider>
           </CartProvider>
         </ProductProvider>
       </AuthProvider>

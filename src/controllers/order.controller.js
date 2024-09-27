@@ -62,3 +62,48 @@ export const createOrder = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const getOrders = async (req, res) => {
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const token = cookies.token;
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = jwt.verify(token, config.SECRET);
+    req.user = decoded;
+    const userExists = await prisma.user.findUnique({
+      where: { id: Number(req.user.userId) },
+    });
+    if (!userExists) return res.status(404).json({ message: "User not found" });
+    const orders = await prisma.order.findMany({
+      where: { userId: Number(req.user.userId) },
+      include: { orderItems: { include: { product: true } } },
+    });
+    res.status(200).json({ orders });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const getOrderById = async (req, res) => {
+  const { orderId } = req.params;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const token = cookies.token;
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = jwt.verify(token, config.SECRET);
+    req.user = decoded;
+    const userExists = await prisma.user.findUnique({
+      where: { id: Number(req.user.userId) },
+    });
+    if (!userExists) return res.status(404).json({ message: "User not found" });
+    const order = await prisma.order.findFirst({
+      where: { userId: Number(req.user.userId), id: Number(orderId) },
+      include: { orderItems: { include: { product: true } } },
+    });
+    res.status(200).json({ order });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

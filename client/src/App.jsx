@@ -17,6 +17,7 @@ import ProductPage from "./pages/ProductPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProductForm from "./pages/ProductForm";
 import OrdersPage from "./pages/OrdersPage";
+import OrderPage from "./pages/OrderPage";
 
 const App = () => {
   return (
@@ -33,6 +34,10 @@ const App = () => {
                 <Route path="/products/:productId" element={<ProductPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/profile/orders" element={<OrdersPage />} />
+                <Route
+                  path="/profile/orders/:orderId"
+                  element={<OrderPage />}
+                />
                 <Route path="/profile/sell-item" element={<ProductForm />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route

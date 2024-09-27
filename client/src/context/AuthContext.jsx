@@ -6,6 +6,7 @@ import {
   verifyRequest,
 } from "../api/auth.api";
 import Cookies from "js-cookie";
+import { set } from "react-hook-form";
 
 export const AuthContext = createContext();
 export const useAuth = () => {
@@ -23,12 +24,14 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [seller, setSeller] = useState("");
 
   const registerAuth = async (data) => {
     try {
       const response = await registerRequest(data);
       setUser(response.data.user);
       setIsAuthenticated(true);
+      setSeller(response.data.user.role);
     } catch (error) {
       console.error(error);
     }
@@ -39,6 +42,7 @@ export const AuthProvider = ({ children }) => {
       const response = await loginRequest(data);
       setUser(response.data.user);
       setIsAuthenticated(true);
+      setSeller(response.data.user.role);
     } catch (error) {
       console.error(error);
     }
@@ -48,8 +52,17 @@ export const AuthProvider = ({ children }) => {
     await logoutRequest();
     setUser(null);
     setIsAuthenticated(false);
+    setSeller("");
   };
 
+  const isSeller = async () => {
+    try {
+      const res = await verifyRequest();
+      setSeller(res.data.user.role);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     const checkLogin = async () => {
       const cookies = Cookies.get();
@@ -70,11 +83,20 @@ export const AuthProvider = ({ children }) => {
     };
 
     checkLogin();
+
+    isSeller();
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated, registerAuth, loginAuth, logoutAuth }}
+      value={{
+        user,
+        isAuthenticated,
+        registerAuth,
+        loginAuth,
+        logoutAuth,
+        seller,
+      }}
     >
       {children}
     </AuthContext.Provider>

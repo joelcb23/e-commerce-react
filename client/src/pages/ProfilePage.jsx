@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const ProfilePage = () => {
+  const { seller } = useAuth();
+
   return (
     <div
       className={`dark:bg-gray-900 bg-gray-100 rounded-lg p-5 w-full 
@@ -13,11 +16,13 @@ const ProfilePage = () => {
             Orders
           </Link>
         </li>
-        <li className="text-xl dark:bg-slate-800 bg-gray-100 p-3 rounded">
-          <Link to="/profile/sell-item" className="w-full block">
-            Sell Item
-          </Link>
-        </li>
+        {seller === "SELLER" && (
+          <li className="text-xl dark:bg-slate-800 bg-gray-100 p-3 rounded">
+            <Link to="/profile/sell-item" className="w-full block">
+              Sell Item
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );

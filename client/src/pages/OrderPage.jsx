@@ -19,7 +19,7 @@ const OrderPage = () => {
       <>
         <h1 className="text-center text-3xl font-bold mb-4">Order {orderId}</h1>
         <h2></h2>
-        <h2>
+        <h2 className="text-xl text-center mb-4">
           {`Scheduled delivery date for: ${date.split("T")[0]}`}
           {" -- "}
           <span className="text-red-500">{order?.status}</span>
@@ -34,7 +34,9 @@ const OrderPage = () => {
               </div>
             </div>
           ))}
-          <h2>Order total: ${Math.round(order?.total * 100) / 100}</h2>
+          <p className="text-xl text-right">
+            Order total: ${Math.round(order?.total * 100) / 100}
+          </p>
         </div>
       </>
     );
@@ -42,8 +44,8 @@ const OrderPage = () => {
   return (
     <div
       className={`dark:bg-gray-900 bg-gray-100
-        w-full p-5 mx-auto rounded-lg shadow-2xl
-        md:w-1/2 md:p-10`}
+        w-full p-5 mx-auto mt-20 rounded-lg shadow-2xl
+        md:w-2/3 md:p-10 md:mt-40`}
     >
       {renderOrder()}
     </div>

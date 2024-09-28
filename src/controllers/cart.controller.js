@@ -4,7 +4,7 @@ import prisma from "../db.js";
 import config from "../config/config.js";
 
 export const getCart = async (req, res) => {
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 
@@ -33,7 +33,7 @@ export const getCart = async (req, res) => {
 
 export const addItemToCart = async (req, res) => {
   const { productId, quantity } = req.body;
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 
@@ -89,7 +89,7 @@ export const addItemToCart = async (req, res) => {
 };
 
 export const removeItemFromCart = async (req, res) => {
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 
@@ -121,7 +121,7 @@ export const removeItemFromCart = async (req, res) => {
 };
 
 export const emptyCart = async (req, res) => {
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 

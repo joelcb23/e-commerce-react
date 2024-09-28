@@ -10,9 +10,12 @@ const OrdersPage = () => {
   }, []);
 
   const renderOrders = () => {
-    if (!orders || orders.length == 0) return <h1>No orders</h1>;
+    if (!orders || orders.length == 0)
+      return (
+        <h1 className="text-center font-semibold text-xl ">No orders yet!</h1>
+      );
     return orders.map(({ id, status, total, orderItems }) => (
-      <li key={id} className="dark:bg-slate-800 bg-gray-100 p-3 rounded">
+      <li key={id} className="dark:bg-slate-800 bg-white p-3 rounded">
         <Link
           to={`/profile/orders/${id}`}
           className="w-full flex justify-between items-center"
@@ -37,7 +40,8 @@ const OrdersPage = () => {
     <div
       className={`
     dark:bg-gray-900 bg-gray-100 w-full rounded-lg shadow-2xl
-    md:w-2/3 mx-auto p-5 
+    mt-20 p-5 
+    md:w-2/3 mx-auto md:mt-40 
 
     `}
       // flex flex-col justify-center items-center

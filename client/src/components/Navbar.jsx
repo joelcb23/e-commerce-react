@@ -1,8 +1,17 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { IoCartSharp, IoClose, IoLogOutSharp, IoMenu } from "react-icons/io5";
+import {
+  IoCartSharp,
+  IoClose,
+  IoHomeSharp,
+  IoLogInSharp,
+  IoLogOutSharp,
+  IoMenu,
+  IoPersonCircleSharp,
+  IoStorefrontSharp,
+} from "react-icons/io5";
 import { useProduct } from "../context/ProductContext";
 
 const Navbar = () => {
@@ -10,6 +19,8 @@ const Navbar = () => {
   const { searchProduct } = useProduct();
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -21,8 +32,24 @@ const Navbar = () => {
 
     searchProduct(search);
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 150) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className="flex justify-between items-center md:flex-col py-2 mb-10 text-center shadow-lg relative">
+    <nav className="fixed left-0 top-0 z-50 w-full h-16 md:h-32 dark:bg-gray-800 bg-white flex justify-between items-center md:flex-col py-2 mb-10 text-center shadow-lg transition-all duration-500 ease-linear">
       <h1>
         <Link to="/" className="text-3xl font-bold py-2 px-3">
           E-Commerce
@@ -37,8 +64,10 @@ const Navbar = () => {
       </button>
       <ul
         className={`
-        text-xl  flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly items-center w-full md:w-2/3 mx-auto pb-5 md:py-5
-        top-[72px] absolute z-50 md:static dark:bg-gray-800 bg-white transition-all duration-300 ease-linear
+        text-xl flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly items-center w-full ${
+          isScrolled ? "md:w-1/3" : "md:w-2/3"
+        } mx-auto pb-5 md:py-5
+        top-16 absolute md:static dark:bg-gray-800 bg-white transition-all duration-300 ease-linear
         ${show ? "left-0" : "left-[-100%]"}`}
       >
         <li className="w-full md:w-auto">
@@ -48,30 +77,35 @@ const Navbar = () => {
               className="text-lg py-1 px-2 dark:bg-gray-900 bg-gray-200 rounded-2xl outline-none"
               placeholder="Search..."
               value={search}
+              onClick={() => navigate("/search")}
               onChange={(e) => setSearch(e.target.value)}
             />
           </form>
         </li>
         <li className="hover:border-b-2">
           <NavLink to="/" onClick={() => setShow(false)}>
-            Home
+            {isScrolled ? <IoHomeSharp /> : "Home"}
           </NavLink>
         </li>
         <li className="hover:border-b-2">
           <NavLink to="/products" onClick={() => setShow(false)}>
-            Products
+            {isScrolled ? <IoStorefrontSharp /> : "Products"}
           </NavLink>
         </li>
         {isAuthenticated ? (
           <>
             <li className="hover:border-b-2">
               <NavLink to="/profile" onClick={() => setShow(false)}>
-                Profile
+                {isScrolled ? <IoPersonCircleSharp /> : "Profile"}
               </NavLink>
             </li>
             <li className="hover:border-b-2 text-center">
               <NavLink to="/cart" onClick={() => setShow(false)}>
-                <IoCartSharp className="text-2xl text-center" />
+                {isScrolled ? (
+                  <IoCartSharp className="text-2xl text-center" />
+                ) : (
+                  "Cart"
+                )}
               </NavLink>
             </li>
             <li className="hover:border-b-2">
@@ -82,7 +116,7 @@ const Navbar = () => {
                   setShow(false);
                 }}
               >
-                <IoLogOutSharp className="text-2xl" />
+                {isScrolled ? <IoLogOutSharp className="text-2xl" /> : "Logout"}
               </NavLink>
             </li>
           </>
@@ -90,7 +124,7 @@ const Navbar = () => {
           <>
             <li className="hover:border-b-2">
               <NavLink to="/login" onClick={() => setShow(false)}>
-                Login
+                {isScrolled ? <IoLogInSharp /> : "Login"}
               </NavLink>
             </li>
             <li className="hover:border-b-2">

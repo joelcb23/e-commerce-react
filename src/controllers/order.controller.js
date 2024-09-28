@@ -7,7 +7,7 @@ import { convertDateToISO } from "../utils/convertDate.js";
 export const createOrder = async (req, res) => {
   // Get the token from the cookie
   const { deliveryDate } = req.body;
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 
@@ -45,14 +45,20 @@ export const createOrder = async (req, res) => {
         userId: Number(req.user.userId),
       },
     });
-    await prisma.product.updateMany({
-      where: { id: { in: cartItems.map((item) => item.productId) } },
-      data: {
-        stock: {
-          decrement: cartItems.reduce((acc, item) => acc + item.quantity, 0),
+
+    // Update the product stock
+    for (const item of cartItems) {
+      await prisma.product.update({
+        where: { id: item.productId },
+        data: {
+          stock: {
+            decrement: item.quantity,
+          },
         },
-      },
-    });
+      });
+    }
+
+    // Disable the cart
     await prisma.cart.update({
       where: { id: cart.id },
       data: { isActive: false },
@@ -64,7 +70,7 @@ export const createOrder = async (req, res) => {
 };
 
 export const getOrders = async (req, res) => {
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 
@@ -87,7 +93,7 @@ export const getOrders = async (req, res) => {
 
 export const getOrderById = async (req, res) => {
   const { orderId } = req.params;
-  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : null;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
 

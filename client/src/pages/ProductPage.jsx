@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { useProduct } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
 
 const ProductPage = () => {
   const { product, getProduct } = useProduct();
   const { addToCart } = useCart();
-  const { register, handleSubmit } = useForm();
   const { productId } = useParams();
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
@@ -16,21 +14,25 @@ const ProductPage = () => {
     getProduct(productId);
   }, [productId]);
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = () => {
     const item = { productId, quantity };
     addToCart(item);
 
     navigate("/cart");
-  });
+  };
 
   return (
-    <div className="dark:bg-gray-900 bg-gray-100 flex flex-col md:flex-row gap-5 w-full md:w-3/4 m-auto p-5 md:p-10 rounded-lg shadow-2xl">
+    <div
+      className={`dark:bg-gray-900 bg-gray-100 rounded-lg shadow-2xl shadow-gray-400
+    flex flex-col gap-5 w-full m-auto mt-20 p-5 
+    md:flex-row md:items-start md:w-2/3 md:p-10 md:mt-40`}
+    >
       <img
         src={product.img}
         alt={`${product.name}-image`}
         className="w-full md:w-2/3"
       />
-      <div className="w-full md:w-1/3 flex flex-col justify-between">
+      <div className="w-full md:w-1/3 flex flex-col justify-between gap-5">
         <h1 className="text-2xl font-semibold">{product.name}</h1>
         <p>{product.description}</p>
         <p className="text-xl">${product.price}</p>
@@ -42,7 +44,6 @@ const ProductPage = () => {
             name="stock"
             max={product.stock}
             min={1}
-            {...register("quantity")}
             onChange={(e) => setQuantity(Number(e.target.value))}
             value={quantity}
             className="input number-input"

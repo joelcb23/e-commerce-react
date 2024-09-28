@@ -21,7 +21,12 @@ const ProductForm = () => {
     navigate("/products");
   });
   return (
-    <div className="w-full md:w-1/2 m-auto p-5 md:p-10 dark:bg-gray-700 bg-gray-100 rounded-lg shadow-2xl">
+    <div
+      className={`dark:bg-gray-700 bg-gray-100 rounded-lg shadow-2xl
+      w-full mt-20 p-5 mx-auto
+      md:w-2/3 md:mt-40 md:p-10 
+      `}
+    >
       <h1 className="text-3xl font-bold text-center">Product Form</h1>
       <form onSubmit={onSubmit} className="flex flex-col">
         <label htmlFor="name">Name:</label>
@@ -73,7 +78,7 @@ const ProductForm = () => {
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
         >
-          Submit
+          Add the product
         </button>
       </form>
     </div>

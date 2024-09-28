@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply dark:bg-gray-800 dark:text-white min-h-screen;
+  @apply dark:bg-gray-800 dark:text-white min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
 }
 
 .label {

@@ -6,7 +6,7 @@ const ProfilePage = () => {
 
   return (
     <div
-      className={`dark:bg-gray-900 bg-gray-100 rounded-lg p-5 w-full mt-20 shadow-2xl shadow-gray-400
+      className={`dark:bg-gray-900 bg-gray-100 rounded-lg p-5 w-full mt-20 shadow-2xl shadow-gray-400 dark:shadow-black 
     md:w-2/3 md:mt-40 mx-auto`}
     >
       <h1 className="text-3xl font-bold text-center mb-4">Profile Page</h1>

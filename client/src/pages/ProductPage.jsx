@@ -23,7 +23,7 @@ const ProductPage = () => {
 
   return (
     <div
-      className={`dark:bg-gray-900 bg-gray-100 rounded-lg shadow-2xl shadow-gray-400
+      className={`dark:bg-gray-900 bg-gray-100 rounded-lg shadow-2xl shadow-gray-400 dark:shadow-black 
     flex flex-col gap-5 w-full m-auto mt-20 p-5 
     md:flex-row md:items-start md:w-2/3 md:p-10 md:mt-40`}
     >

@@ -5,12 +5,13 @@ import {
   getCart,
   removeItemFromCart,
 } from "../controllers/cart.controller.js";
+import { verifyToken } from "../middlewares/authJWT.js";
 
 const router = Router();
 
-router.get("/", getCart);
-router.post("/", addItemToCart);
-router.delete("/cartItem/:cartItemId", removeItemFromCart);
-router.delete("/cartItem", emptyCart);
+router.get("/", verifyToken, getCart);
+router.post("/", verifyToken, addItemToCart);
+router.delete("/cartItem/:cartItemId", verifyToken, removeItemFromCart);
+router.delete("/cartItem", verifyToken, emptyCart);
 
 export default router;

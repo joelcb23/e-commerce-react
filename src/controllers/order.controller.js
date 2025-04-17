@@ -69,6 +69,68 @@ export const createOrder = async (req, res) => {
   }
 };
 
+export const createOrderByProductId = async (req, res) => {
+  const { productId } = req.params;
+  const { quantity, deliveryDate } = req.body;
+  const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
+  const token = cookies.token;
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = jwt.verify(token, config.SECRET);
+    req.user = decoded;
+    const userExists = await prisma.user.findUnique({
+      where: { id: Number(req.user.userId) },
+    });
+    if (!userExists) return res.status(404).json({ message: "User not found" });
+    const product = await prisma.product.findUnique({
+      where: { id: Number(productId) },
+    });
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    const newCart = await prisma.cart.create({
+      data: {
+        userId: Number(req.user.userId),
+        isActive: true,
+      },
+    });
+    const newCartItem = await prisma.cartItem.create({
+      data: {
+        cartId: newCart.id,
+        productId: Number(productId),
+        quantity,
+      },
+    });
+    const total = product.price * quantity;
+    const order = await prisma.order.create({
+      data: {
+        orderItems: {
+          connect: [{ id: newCartItem.id }],
+        },
+        total,
+        deliveryDate: convertDateToISO(deliveryDate),
+        userId: Number(req.user.userId),
+      },
+    });
+    await prisma.product.update({
+      where: { id: Number(productId) },
+      data: {
+        stock: {
+          decrement: quantity,
+        },
+      },
+    });
+
+    await prisma.cart.update({
+      where: { id: newCart.id },
+      data: { isActive: false },
+    });
+
+    res.status(200).json({ order });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 export const getOrders = async (req, res) => {
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;

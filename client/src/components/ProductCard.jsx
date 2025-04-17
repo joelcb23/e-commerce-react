@@ -1,16 +1,27 @@
-const ProductCard = ({ id, name, price, img, handleId }) => {
+import { useProduct } from "../context/ProductContext";
+
+const ProductCard = ({ id, name, price, description, img, handleId }) => {
+  const { search } = useProduct();
   return (
     <div
-      className="w-full md:h-[270px] dark:bg-gray-900 bg-gray-200 rounded-md p-2 shadow-md dark:shadow-black dark:hover:shadow-black  shadow-gray-400 hover:shadow-lg hover:shadow-gray-500  cursor-pointer"
+      className={`
+        bg-white w-full h-[180px] overflow-hidden flex items-start gap-5 p-3 rounded-md shadow-md cursor-pointer shadow-gray-400 hover:shadow-lg hover:shadow-gray-500 
+         md:h-[380px]
+         ${search ? "md:flex-row" : "md:flex-col"}`}
       onClick={() => handleId(id)}
     >
       <img
         src={img}
         alt={`${name}-image`}
-        className="w-full h-3/4 object-cover"
+        className={`
+          w-full h-full object-cover rounded-md 
+          md:h-3/5
+          ${search && "md:w-3/5 md:h-full"}`}
       />
-      <h1 className="mt-3">{name}</h1>
-      <h2>${price}</h2>
+      <div className={`w-full overflow-hidden ${search && "w-2/5"}`}>
+        <h1 className="my-3 text-xl font-extralight">{name}</h1>
+        <h2 className="my-3 text-2xl ">${price}</h2>
+      </div>
     </div>
   );
 };

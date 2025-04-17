@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
+import Page from "../components/Page";
 
 const ProductPage = () => {
   const { product, getProduct } = useProduct();
@@ -22,10 +23,11 @@ const ProductPage = () => {
   };
 
   return (
-    <div
-      className={`dark:bg-gray-900 bg-gray-100 rounded-lg shadow-2xl shadow-gray-400 dark:shadow-black 
-    flex flex-col gap-5 w-full m-auto mt-20 p-5 
-    md:flex-row md:items-start md:w-2/3 md:p-10 md:mt-40`}
+    <Page
+      className={`
+        flex flex-col gap-5
+        md:flex-row md:items-start
+    `}
     >
       <img
         src={product.img}
@@ -34,9 +36,8 @@ const ProductPage = () => {
       />
       <div className="w-full md:w-1/3 flex flex-col justify-between gap-5">
         <h1 className="text-2xl font-semibold">{product.name}</h1>
-        <p>{product.description}</p>
         <p className="text-xl">${product.price}</p>
-        <p className="text-xl">On Stock: {product.stock}</p>
+        <p className="text-xl text-neutral-600">On Stock: {product.stock}</p>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-2 w-full">
           <input
@@ -50,13 +51,14 @@ const ProductPage = () => {
           />
           <button
             type="submit"
-            className="bg-sky-500 hover:bg-sky-700 px-3 py-1 rounded text-white"
+            className="bg-sky-500 hover:bg-sky-700 px-8 py-4 rounded-lg text-white"
           >
             Add to cart
           </button>
         </form>
+        <p className="text-neutral-600 my-5">{product.description}</p>
       </div>
-    </div>
+    </Page>
   );
 };
 

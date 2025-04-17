@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useProduct } from "../context/ProductContext";
 import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
+import Page from "../components/Page";
 
 const HomePage = () => {
   const { products, getProducts, getProduct } = useProduct();
@@ -16,19 +17,16 @@ const HomePage = () => {
   };
 
   return (
-    <div
-      className={`
-    w-full mt-20 
-    md:w-2/3 md:mx-auto md:mt-40`}
-    >
-      <h1 className="text-3xl font-bold text-center mb-4">
+    <Page>
+      <h1 className="text-3xl font-bold text-center mb-10">
         Products less than $1000
       </h1>
       <div
         className={`
         grid grid-cols-1 gap-4 justify-center items-center
-        md:grid-cols-2 
-        lg:grid-cols-4`}
+        md:grid-cols-2 md:gap-6 
+        lg:grid-cols-4
+        `}
       >
         {products
           .filter((product) => product.price < 1000)
@@ -43,7 +41,7 @@ const HomePage = () => {
             />
           ))}
       </div>
-    </div>
+    </Page>
   );
 };
 export default HomePage;

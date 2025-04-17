@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useOrder } from "../context/OrderContext";
 import { Link } from "react-router-dom";
+import Page from "../components/Page";
 
 const OrdersPage = () => {
   const { orders, getOrders } = useOrder();
@@ -15,7 +16,7 @@ const OrdersPage = () => {
         <h1 className="text-center font-semibold text-xl ">No orders yet!</h1>
       );
     return orders.map(({ id, status, total, orderItems }) => (
-      <li key={id} className="dark:bg-slate-800 bg-white p-3 rounded">
+      <li key={id} className=" bg-white border p-3 rounded">
         <Link
           to={`/profile/orders/${id}`}
           className="w-full flex justify-between items-center"
@@ -37,18 +38,10 @@ const OrdersPage = () => {
   };
 
   return (
-    <div
-      className={`
-    dark:bg-gray-900 bg-gray-100 w-full rounded-lg shadow-2xl
-    mt-20 p-5 
-    md:w-2/3 mx-auto md:mt-40 
-
-    `}
-      // flex flex-col justify-center items-center
-    >
+    <Page>
       <h1 className="text-3xl font-bold text-center mb-4">Orders Page</h1>
       <ul className="flex flex-col gap-2">{renderOrders()}</ul>
-    </div>
+    </Page>
   );
 };
 

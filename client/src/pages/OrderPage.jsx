@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useOrder } from "../context/OrderContext";
 import { useEffect } from "react";
+import Page from "../components/Page";
 
 const OrderPage = () => {
   const { order, getOrderById } = useOrder();
@@ -41,15 +42,7 @@ const OrderPage = () => {
       </>
     );
   };
-  return (
-    <div
-      className={`dark:bg-gray-900 bg-gray-100
-        w-full p-5 mx-auto mt-20 rounded-lg shadow-2xl
-        md:w-2/3 md:p-10 md:mt-40`}
-    >
-      {renderOrder()}
-    </div>
-  );
+  return <Page>{renderOrder()}</Page>;
 };
 
 export default OrderPage;

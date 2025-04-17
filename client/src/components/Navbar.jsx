@@ -16,9 +16,8 @@ import { useProduct } from "../context/ProductContext";
 
 const Navbar = () => {
   const { isAuthenticated, logoutAuth } = useAuth();
-  const { searchProduct } = useProduct();
+  const { search, setSearch, searchProduct } = useProduct();
   const [show, setShow] = useState(false);
-  const [search, setSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ const Navbar = () => {
     }
 
     searchProduct(search);
+    console.log(search);
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
     };
   }, []);
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full h-16 md:h-32 dark:bg-gray-800 bg-white flex justify-between items-center md:flex-col py-2 mb-10 text-center shadow-lg transition-all duration-500 ease-linear">
+    <nav className="fixed left-0 top-0 z-50 w-full bg-sky-600 text-white flex justify-between items-center md:flex-col py-5 mb-10 text-center shadow-lg transition-all duration-500 ease-linear">
       <h1>
         <Link to="/" className="text-3xl font-bold py-2 px-3">
           E-Commerce
@@ -67,14 +67,14 @@ const Navbar = () => {
         text-xl flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly items-center w-full ${
           isScrolled ? "md:w-1/3" : "md:w-2/3"
         } mx-auto pb-5 md:py-5
-        top-16 absolute md:static dark:bg-gray-800 bg-white transition-all duration-300 ease-linear
+        top-16 absolute md:static bg-sky-600 transition-all duration-300 ease-linear
         ${show ? "left-0" : "left-[-100%]"}`}
       >
         <li className="w-full md:w-auto">
           <form onSubmit={handleSearch}>
             <input
               type="text"
-              className="text-lg py-1 px-2 dark:bg-gray-900 bg-gray-200 rounded-2xl outline-none"
+              className="text-lg text-neutral-200 py-1 px-3 bg-sky-700 rounded-2xl outline-none"
               placeholder="Search..."
               value={search}
               onClick={() => navigate("/search")}

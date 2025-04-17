@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContext";
-
 import ProductCard from "../components/ProductCard";
+import Page from "../components/Page";
 
 const ProductsPage = () => {
-  const { products, getProducts, getProduct } = useProduct();
+  const { products, getProducts, getProduct, search } = useProduct();
   const navigate = useNavigate();
+  const params = useParams();
   useEffect(() => {
     getProducts();
   }, []);
@@ -15,36 +16,37 @@ const ProductsPage = () => {
     getProduct(id);
     navigate(`/products/${id}`);
   };
-
   const renderProducts = () => {
-    if (!products || products.length == 0) return <h1>No Products Found</h1>;
-    return products.map(({ id, name, price, img }) => (
+    if (!products || products.length == 0)
+      return <h1 className="my-10 text-2xl">No Products Found</h1>;
+    return products.map(({ id, name, price, description, img }) => (
       <ProductCard
         key={id}
         id={id}
         name={name}
         price={price}
+        description={description}
         img={img}
         handleId={handleProduct}
       />
     ));
   };
   return (
-    <div
-      className={`w-full mt-20 
-      md:w-2/3 md:mx-auto md:mt-40
-      `}
-    >
-      <h1 className="text-3xl font-bold text-center mb-4">List of Products</h1>
+    <Page>
+      <h1 className="text-3xl font-bold text-center mb-10">List of Products</h1>
       <div
-        className={`grid grid-cols-1 gap-4 justify-center items-center
+        className={`flex flex-col gap-4 ${
+          !search &&
+          `grid grid-cols-1 gap-5 justify-stretch
         md:grid-cols-2 
-        lg:grid-cols-4
+        lg:grid-cols-4`
+        } 
+        
         `}
       >
         {renderProducts()}
       </div>
-    </div>
+    </Page>
   );
 };
 export default ProductsPage;

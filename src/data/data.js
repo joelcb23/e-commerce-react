@@ -12,26 +12,30 @@ for (let i = 0; i < 100; i++) {
   let category;
 
   if (price < 75) {
-    name = "Clothes";
+    name = "Headphones";
     img =
       "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg";
-    category = "Clothing";
-  } else if (price < 250) {
-    name = "Book";
+    category = "Audio";
+  } else if (price < 125) {
+    name = "Smartphone based on Android";
     img =
       "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg";
-    category = "Productivity";
-  } else if (price < 500) {
-    name = "Home Theater";
+    category = "Electronics";
+  } else if (price < 280) {
+    name = "Laptop base";
     img = "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg";
-    category = "Furniture";
+    category = "Electronics";
+  }else if (price < 500) {
+    name = "Console Game";
+    img = "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg";
+    category = "Electronics";
   } else if (price < 850) {
     name = "TV";
     img =
       "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$";
     category = "Furniture";
-  } else if (price < 1200) {
-    name = "Mobile";
+  } else if (price < 1500) {
+    name = "Iphone";
     img =
       "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg";
     category = "Electronics";
@@ -60,7 +64,7 @@ for (let i = 0; i < 100; i++) {
     stock,
     img,
     category,
-    sellerId: Math.floor(Math.random() * 4 + 2),
+    sellerId:Math.floor(Math.random() * (9 - 2 + 1)) + 2,
   };
   data.push(product);
 }

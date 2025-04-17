@@ -1,15 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap'); */
 
 body {
-  @apply dark:bg-gray-800 dark:text-white min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
+
+  @apply bg-neutral-200 min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
+  /* font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal; */
 }
 
 .label {
-  @apply dark:text-white block;
+  @apply text-white block;
 }
 
 .input {
-  @apply dark:bg-gray-800 dark:text-white my-2 px-2 py-1 rounded-lg outline-none;
+  @apply bg-neutral-100 border border-neutral-400 w-full text-neutral-600 my-2 px-2 py-3 rounded-lg outline-none;
 }

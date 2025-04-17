@@ -23,6 +23,7 @@ export const useProduct = () => {
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([]);
+  const [search, setSearch] = useState("");
   const getProducts = async () => {
     try {
       const res = await getProductsRequest();
@@ -79,6 +80,8 @@ export const ProductProvider = ({ children }) => {
   return (
     <ProductContext.Provider
       value={{
+        search,
+        setSearch,
         products,
         setProducts,
         product,

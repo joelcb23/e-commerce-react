@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { IoCloseSharp } from "react-icons/io5";
 import { useCart } from "../context/CartContext";
+import { useOrder } from "../context/OrderContext";
+import Page from "../components/Page";
 import ItemCart from "../components/ItemCart";
 import Modal from "../components/Modal";
-import { IoCloseSharp } from "react-icons/io5";
-import { useOrder } from "../context/OrderContext";
 
 const CartPage = () => {
   const { itemsCart, setItemsCart, getCart, emptyCart } = useCart();
@@ -40,7 +41,7 @@ const CartPage = () => {
     getCart();
   }, []);
   return (
-    <div className="w-full md:w-2/3 mx-auto mt-20 md:mt-40 p-5 dark:bg-gray-900 bg-gray-100 rounded-lg shadow-2xl dark:shadow-black shadow-gray-400">
+    <Page>
       <h1 className="text-3xl font-bold text-center mb-4">Your Cart</h1>
       <div className="flex flex-col gap-5">{renderCart()}</div>
       <div className="flex justify-between items-center my-4">
@@ -60,7 +61,6 @@ const CartPage = () => {
       >
         Checkout
       </button>
-      {/* <button>Buy Now</button> */}
       <Modal open={open}>
         <button
           onClick={() => {
@@ -89,7 +89,7 @@ const CartPage = () => {
           </button>
         </form>
       </Modal>
-    </div>
+    </Page>
   );
 };
 

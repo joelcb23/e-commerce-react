@@ -38,7 +38,7 @@ const OrdersPage = () => {
   };
 
   return (
-    <Page>
+    <Page className="my-28 md:my-52">
       <h1 className="text-3xl font-bold text-center mb-4">Orders Page</h1>
       <ul className="flex flex-col gap-2">{renderOrders()}</ul>
     </Page>

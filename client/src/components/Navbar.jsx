@@ -1,6 +1,6 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   IoCartSharp,
@@ -19,6 +19,7 @@ const Navbar = () => {
   const { search, setSearch, searchProduct } = useProduct();
   const [show, setShow] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -30,29 +31,43 @@ const Navbar = () => {
     }
 
     searchProduct(search);
-    console.log(search);
+    setShow(false);
   };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 150) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+    if (window.innerWidth > 768 && window.innerWidth < 1024) {
+      setIsScrolled(true);
+    }
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setShow(false);
       }
     };
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 150);
+    };
+
+    if (show) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
     window.addEventListener("scroll", handleScroll);
 
+    // Cleanup
     return () => {
+      if (show) {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [show]);
   return (
     <nav className="fixed left-0 top-0 z-50 w-full bg-sky-600 text-white flex justify-between items-center md:flex-col py-5 mb-10 text-center shadow-lg transition-all duration-500 ease-linear">
       <h1>
         <Link to="/" className="text-3xl font-bold py-2 px-3">
-          E-Commerce
+          Tech-Commerce
         </Link>
       </h1>
 
@@ -63,6 +78,7 @@ const Navbar = () => {
         {show ? <IoClose /> : <IoMenu />}
       </button>
       <ul
+        ref={menuRef}
         className={`
         text-xl flex flex-col gap-5 md:flex-row md:gap-0 md:justify-evenly items-center w-full ${
           isScrolled ? "md:w-1/3" : "md:w-2/3"

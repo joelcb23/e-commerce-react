@@ -1,10 +1,13 @@
-const Page = ({ children }) => {
+import clsx from "clsx";
+
+const Page = ({ children, className = "" }) => {
   return (
     <section
-      className={`
-    bg-[#fcfcfc] w-full min-h-screen my-28 px-3 py-10
-    md:w-2/3 md:mx-auto md:my-52 md:px-5
-    `}
+      className={clsx(
+        "bg-[#fcfcfc] w-full min-h-[calc(100vh-180px)] px-3 py-10",
+        "md:w-2/3 md:mx-auto md:px-5",
+        className
+      )}
     >
       {children}
     </section>

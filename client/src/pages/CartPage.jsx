@@ -41,26 +41,28 @@ const CartPage = () => {
     getCart();
   }, []);
   return (
-    <Page>
+    <Page className="my-28 md:my-52">
       <h1 className="text-3xl font-bold text-center mb-4">Your Cart</h1>
-      <div className="flex flex-col gap-5">{renderCart()}</div>
-      <div className="flex justify-between items-center my-4">
+      <div className="w-full md:w-2/3 mx-auto">
+        <div className="flex flex-col gap-5 ">{renderCart()}</div>
+        <div className="flex justify-between items-center my-4">
+          <button
+            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            onClick={emptyCart}
+          >
+            Empty Cart
+          </button>
+          <h1 className="text-xl md:text-3xl font-semibold">
+            Total: $ {Math.round(total * 100) / 100}
+          </h1>
+        </div>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-          onClick={emptyCart}
+          onClick={() => setOpen(true)}
+          className="w-full  bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
         >
-          Empty Cart
+          Checkout
         </button>
-        <h1 className="text-xl md:text-3xl font-semibold">
-          Total: $ {Math.round(total * 100) / 100}
-        </h1>
       </div>
-      <button
-        onClick={() => setOpen(true)}
-        className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-      >
-        Checkout
-      </button>
       <Modal open={open}>
         <button
           onClick={() => {

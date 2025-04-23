@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 /* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 body {
 
   @apply bg-neutral-200 min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
-  /* font-family: "Share Tech Mono", monospace;
-  font-weight: 400;
-  font-style: normal; */
 }
 
 .label {

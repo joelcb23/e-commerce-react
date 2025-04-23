@@ -42,7 +42,7 @@ const OrderPage = () => {
       </>
     );
   };
-  return <Page>{renderOrder()}</Page>;
+  return <Page className="my-28 md:my-52">{renderOrder()}</Page>;
 };
 
 export default OrderPage;

@@ -7,6 +7,7 @@ import OrderProvider from "./context/OrderContext";
 import Navbar from "./components/Navbar";
 
 import HomePage from "./pages/HomePage";
+import ComingSoon from "./pages/ComingSoon";
 import ProductsPage from "./pages/ProductsPage";
 
 import FormAuth from "./pages/FormAuth";
@@ -30,6 +31,7 @@ const App = () => {
               <Navbar />
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/coming-soon" element={<ComingSoon />} />
                 <Route path="/search" element={<ProductsPage />} />
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/products/:productId" element={<ProductPage />} />

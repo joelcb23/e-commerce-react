@@ -5,7 +5,12 @@ import { useEffect } from "react";
 
 const SignUpForm = () => {
   const { registerAuth, isAuthenticated } = useAuth();
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,6 +19,7 @@ const SignUpForm = () => {
 
   const onSubmit = handleSubmit((data) => {
     registerAuth(data);
+    console.log(data);
     reset();
   });
   return (
@@ -30,30 +36,55 @@ const SignUpForm = () => {
           <input
             type="text"
             id="name"
-            {...register("name")}
+            {...register("name", {
+              required: { value: true, message: "Name is required" },
+            })}
             placeholder="Your Name"
             className="input"
           />
+          {errors.name && (
+            <span className="text-red-500 text-sm">{errors.name.message}</span>
+          )}
         </p>
         <p>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
-            {...register("email")}
+            {...register("email", {
+              required: { value: true, message: "Email is required" },
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, // Simple email regex pattern
+                message: "Invalid email format",
+              },
+            })}
             placeholder="email@example.com"
             className="input"
           />
+          {errors.email && (
+            <span className="text-red-500 text-sm">{errors.email.message}</span>
+          )}
         </p>
         <p>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
-            {...register("password")}
+            {...register("password", {
+              required: { value: true, message: "Password is required" },
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters long",
+              },
+            })}
             placeholder="Password"
             className="input"
           />
+          {errors.password && (
+            <span className="text-red-500 text-sm">
+              {errors.password.message}
+            </span>
+          )}
         </p>
         <p>
           <label htmlFor="role">User or Seller:</label>

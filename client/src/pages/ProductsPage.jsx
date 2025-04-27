@@ -6,12 +6,16 @@ import Page from "../components/Page";
 import Sidebar from "../components/Sidebar";
 
 const ProductsPage = () => {
-  const { products, getProducts, getProduct, search } = useProduct();
+  const {
+    products,
+    getProducts,
+    getProduct,
+    search,
+    categorySelected,
+    loadProductsByCategory,
+  } = useProduct();
   const navigate = useNavigate();
-  const params = useParams();
-  useEffect(() => {
-    getProducts();
-  }, []);
+  // const params = useParams();
 
   const handleProduct = (id) => {
     getProduct(id);
@@ -32,27 +36,39 @@ const ProductsPage = () => {
       />
     ));
   };
+  useEffect(() => {
+    const loadProducts = async () => {
+      if (categorySelected !== null) {
+        await loadProductsByCategory(categorySelected);
+      } else {
+        await getProducts();
+      }
+    };
+    loadProducts();
+  }, [categorySelected]);
   return (
-    <Page className="my-28 md:my-52 md:flex md:items-start md:gap-5">
+    <>
       <Sidebar />
-      <div className="w-full">
-        <h1 className="text-3xl font-bold text-center mb-10">
-          List of Products
-        </h1>
-        <div
-          className={`flex flex-col gap-4 ${
-            !search &&
-            `grid grid-cols-1 gap-5 justify-stretch
-          md:grid-cols-2 
-          lg:grid-cols-4`
-          } 
-          
-          `}
-        >
-          {renderProducts()}
+      <Page className="my-28 md:my-52 md:flex md:items-start md:gap-5">
+        <div className="w-full">
+          <h1 className="text-3xl font-bold text-center mb-10">
+            List of Products
+          </h1>
+          <div
+            className={`flex flex-col gap-4 ${
+              !search &&
+              `grid grid-cols-1 gap-5 justify-stretch
+            md:grid-cols-2 
+            lg:grid-cols-4`
+            } 
+            
+            `}
+          >
+            {renderProducts()}
+          </div>
         </div>
-      </div>
-    </Page>
+      </Page>
+    </>
   );
 };
 export default ProductsPage;

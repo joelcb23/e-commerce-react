@@ -3,7 +3,9 @@ import {
   createProduct,
   deleteProduct,
   getAllProducts,
+  getCategories,
   getProduct,
+  getProductsByCategory,
   getProductsByName,
   updateProduct,
 } from "../controllers/product.controller.js";
@@ -11,9 +13,12 @@ import { verifyToken, isSeller } from "../middlewares/authJWT.js";
 
 const router = Router();
 
-router.get("/search", getProductsByName); // Ruta más específica
+router.get("/categories", getCategories);
+
+router.get("/search", getProductsByName);
+router.get("/category/:categoryId", getProductsByCategory);
 router.get("/", getAllProducts);
-router.get("/:productId", getProduct); // Ruta más general
+router.get("/:productId", getProduct);
 
 router.post("/", [verifyToken, isSeller], createProduct);
 router.put("/:productId", [verifyToken, isSeller], updateProduct);

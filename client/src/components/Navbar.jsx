@@ -16,7 +16,8 @@ import { useProduct } from "../context/ProductContext";
 
 const Navbar = () => {
   const { isAuthenticated, logoutAuth } = useAuth();
-  const { search, setSearch, searchProduct } = useProduct();
+  const { search, setSearch, searchProduct, setCategorySelected } =
+    useProduct();
   const [show, setShow] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
@@ -104,7 +105,13 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="hover:border-b-2">
-          <NavLink to="/products" onClick={() => setShow(false)}>
+          <NavLink
+            to="/products"
+            onClick={() => {
+              setShow(false);
+              setCategorySelected(null);
+            }}
+          >
             {isScrolled ? <IoStorefrontSharp /> : "Products"}
           </NavLink>
         </li>

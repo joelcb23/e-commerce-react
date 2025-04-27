@@ -35,6 +35,10 @@ const App = () => {
                 <Route path="/search" element={<ProductsPage />} />
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/products/:productId" element={<ProductPage />} />
+                <Route
+                  path="/products/category/:categoryId"
+                  element={<ProductsPage />}
+                />
                 <Route element={<ProtectedRoute />}>
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/profile/orders" element={<OrdersPage />} />

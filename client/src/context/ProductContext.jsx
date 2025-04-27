@@ -2,7 +2,9 @@ import { createContext, useContext, useState } from "react";
 import {
   createProductRequest,
   deleteProductRequest,
+  getCategoriesRequest,
   getProductRequest,
+  getProductsByCategoryRequest,
   getProductsByNameRequest,
   getProductsRequest,
   updateProductRequest,
@@ -21,9 +23,20 @@ export const useProduct = () => {
 };
 
 export const ProductProvider = ({ children }) => {
+  const [categories, setCategories] = useState([]);
+  const [categorySelected, setCategorySelected] = useState(null);
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState("");
+
+  const loadProductsByCategory = async (categoryId) => {
+    try {
+      const res = await getProductsByCategoryRequest(categoryId);
+      setProducts(res.data.products);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const getProducts = async () => {
     try {
       const res = await getProductsRequest();
@@ -77,6 +90,16 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  const loadCategories = async () => {
+    try {
+      const res = await getCategoriesRequest();
+      // console.log(res);
+      setCategories(res.data.categories);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -91,6 +114,11 @@ export const ProductProvider = ({ children }) => {
         createProduct,
         updateProduct,
         deleteProduct,
+        categories,
+        loadCategories,
+        categorySelected,
+        setCategorySelected,
+        loadProductsByCategory,
       }}
     >
       {children}

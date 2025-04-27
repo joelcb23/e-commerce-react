@@ -25,16 +25,30 @@ model User {
 }
 
 model Product {
-  id          Int        @id @default(autoincrement())
-  name        String
-  description String
-  price       Decimal
-  stock       Int
-  img         String
-  category    String
-  seller      User       @relation(fields: [sellerId], references: [id], onDelete: Cascade)
-  sellerId    Int
-  cartItems   CartItem[]
+  id              Int               @id @default(autoincrement())
+  name            String
+  description     String            @db.Text
+  price           Decimal
+  stock           Int
+  img             String
+  seller          User              @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  sellerId        Int
+  cartItems       CartItem[]
+  ProductCategory ProductCategory[]
+}
+
+model Category {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique
+  ProductCategory ProductCategory[]
+}
+
+model ProductCategory {
+  id         Int      @id @default(autoincrement())
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId  Int
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int
 }
 
 model Cart {

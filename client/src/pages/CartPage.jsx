@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { useCart } from "../context/CartContext";
 import { useOrder } from "../context/OrderContext";
@@ -14,9 +15,20 @@ const CartPage = () => {
   let total = 0;
 
   const renderCart = () => {
-    if (!itemsCart || itemsCart.length < 0)
+    // console.log(itemsCart.length);
+    if (!itemsCart || itemsCart.length <= 0)
       return (
-        <h1 className="text-center text-2xl font-semibold">Cart is empty</h1>
+        <>
+          <h1 className="text-center text-2xl font-semibold my-20">
+            Cart is empty
+          </h1>
+          <Link
+            to="/products"
+            className={`text-sky-500 hover:text-sky-600 text-center underline`}
+          >
+            Add some products
+          </Link>
+        </>
       );
     itemsCart.map(({ product, quantity }) => {
       let totalForProduct = product.price * quantity;
@@ -36,16 +48,28 @@ const CartPage = () => {
     setItemsCart([]);
     setOpen(false);
   };
+  const onClose = () => {
+    setOpen(false); // cierra el modal
+  };
 
   useEffect(() => {
-    getCart();
+    // Check if there are items in the cart
+    const checkCart = async () => {
+      await getCart();
+    };
+    checkCart();
   }, []);
   return (
     <Page className="my-28 md:my-52">
       <h1 className="text-3xl font-bold text-center mb-4">Your Cart</h1>
       <div className="w-full md:w-2/3 mx-auto">
         <div className="flex flex-col gap-5 ">{renderCart()}</div>
-        <div className="flex justify-between items-center my-4">
+        <div
+          className={`${
+            itemsCart.length <= 0 ? "hidden" : "flex"
+          } justify-between items-center my-4
+          `}
+        >
           <button
             className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
             onClick={emptyCart}
@@ -58,12 +82,14 @@ const CartPage = () => {
         </div>
         <button
           onClick={() => setOpen(true)}
-          className="w-full  bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+          className={`
+            w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded
+            ${itemsCart.length <= 0 ? "hidden" : "block"}`}
         >
           Checkout
         </button>
       </div>
-      <Modal open={open}>
+      <Modal open={open} onClose={onClose}>
         <button
           onClick={() => {
             setOpen(false);

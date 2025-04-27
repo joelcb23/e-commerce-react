@@ -1,75 +1,115 @@
+// THIS FILE IS TO GENERATE FAKE DATA FOR THE DATABASE
+
 import file from "fs";
+
+// This is the data that will be used to generate the products
+// The data is an array of objects, each object represents a product
+const products = [
+  {
+    name: "Mouse Inalámbrico Logitech M185",
+    categoryId: 2,
+    img: "https://cdn.pixabay.com/photo/2016/11/01/17/11/cp-1788949_960_720.jpg",
+  },
+  {
+    name: "Teclado Mecánico Redragon K552",
+    categoryId: 2,
+    img: "https://cdn.pixabay.com/photo/2022/08/14/16/39/keyboard-7386244_960_720.jpg",
+  },
+  {
+    name: "Disco Duro Externo 1TB Seagate",
+    categoryId: 4,
+    img: "https://cdn.pixabay.com/photo/2013/03/02/02/40/backup-89186_960_720.jpg",
+  },
+  {
+    name: "Auriculares Sony WH-CH520",
+    categoryId: 5,
+    img: "https://cdn.pixabay.com/photo/2022/06/21/21/15/audio-7276511_960_720.jpg",
+  },
+  {
+    name: "Cámara Web Logitech C920",
+    categoryId: 6,
+    img: "https://img.freepik.com/premium-photo/web-camera-attached-monitor-equipment-video_120587-13216.jpg",
+  },
+  {
+    name: 'Monitor LG 24" Full HD',
+    categoryId: 7,
+    img: "https://cdn.pixabay.com/photo/2016/11/29/06/18/home-office-1867761_960_720.jpg",
+  },
+  {
+    name: 'Smart TV" 32 LED',
+    categoryId: 1,
+    img: "https://cdn.pixabay.com/photo/2015/02/07/20/58/tv-627876_960_720.jpg",
+  },
+  {
+    name: "Tablet Samsung Galaxy Tab A8",
+    categoryId: 9,
+    img: "https://cdn.pixabay.com/photo/2017/01/03/12/54/workplace-1949404_960_720.jpg",
+  },
+  {
+    name: "Smartphone Xiaomi Redmi Note 13",
+    categoryId: 10,
+    img: "https://cdn.pixabay.com/photo/2015/10/17/19/49/iphone-6s-993199_960_720.jpg",
+  },
+  {
+    name: 'Laptop HP 15.6" Ryzen 5',
+    categoryId: 11,
+    img: "https://cdn.pixabay.com/photo/2016/06/08/10/35/laptop-1443559_960_720.jpg",
+  },
+];
+
 const data = [];
-const description = `This is a description of the product. It should be at least 250 characters long.
-  Information about the product should be here.
-`;
-for (let i = 0; i < 100; i++) {
-  const price = parseFloat((Math.random() * 2500 + 1).toFixed(2));
-  const stock = Math.floor(Math.random() * 100 + 1);
+const description =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente iste nulla veritatis inventore rerum aperiam nihil iure necessitatibus facere! Tempore, quaerat. Consequuntur eius maiores amet sapiente rem dolore distinctio natus facilis adipisci, ea voluptatibus aliquam nam neque laborum, quod temporibus iusto. Nam atque nisi molestias distinctio similique autem ut repudiandae error magni ipsam. Blanditiis, distinctio cupiditate dolor obcaecati sint corporis! Quaerat veritatis, voluptate iure eligendi sit, numquam tenetur suscipit consequatur ab animi, cumque rem! Repellat aliquam cumque necessitatibus voluptatum! Eos.";
 
-  let name;
-  let img;
-  let category;
-
-  if (price < 75) {
-    name = "Headphones";
-    img =
-      "https://www.glam.com/img/gallery/tips-for-styling-a-clothing-rack-for-the-perfect-aesthetic/l-intro-1678394165.jpg";
-    category = "Audio";
-  } else if (price < 125) {
-    name = "Smartphone based on Android";
-    img =
-      "https://st3.depositphotos.com/1634884/16569/i/450/depositphotos_165698988-stock-photo-best-seller-book.jpg";
-    category = "Electronics";
-  } else if (price < 280) {
-    name = "Laptop base";
-    img = "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg";
-    category = "Electronics";
-  }else if (price < 500) {
-    name = "Console Game";
-    img = "https://hifimart.com/wp-content/uploads/iStock-177100713.jpg";
-    category = "Electronics";
-  } else if (price < 850) {
-    name = "TV";
-    img =
-      "https://images.samsung.com/is/image/samsung/it_UE32ES6800QXZT_001_Front?$L2-Thumbnail$";
-    category = "Furniture";
-  } else if (price < 1500) {
-    name = "Iphone";
-    img =
-      "https://s3b.cashify.in/gpro/uploads/2022/07/07020311/Best-Mobile-Phones-In-The-World.jpg";
-    category = "Electronics";
-  } else if (price < 1750) {
-    name = "Tablet";
-    img =
-      "https://www.popsci.com/wp-content/uploads/2023/03/14/best-tablets-for-college-students-main.jpg";
-    category = "Electronics";
-  } else if (price < 2000) {
-    name = "Laptop";
-    img =
-      "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/l1-1.jpg";
-    category = "Electronics";
+// This function will create a product based on the price
+// It will return a product object with the same name and description as the one in the products array
+const createProduct = (price) => {
+  if (price < 15) {
+    return products[0];
+  } else if (price < 45) {
+    return products[1];
+  } else if (price < 50) {
+    return products[2];
+  } else if (price < 60) {
+    return products[3];
+  } else if (price < 70) {
+    return products[4];
+  } else if (price < 130) {
+    return products[5];
+  } else if (price < 180) {
+    return products[6];
+  } else if (price < 210) {
+    return products[7];
+  } else if (price < 220) {
+    return products[8];
   } else {
-    name = "Motorcycle";
-    img =
-      "http://images5.fanpop.com/image/photos/26500000/DUCATI-1198S-motorcycles-26543532-1600-1200.jpg";
-    category = "Vehicle";
+    return products[9];
   }
+};
 
-  const product = {
+// This loop will create 100 products with random prices and stock
+// The price will be between 1 and 250
+// The stock will be between 1 and 100
+for (let i = 0; i < 100; i++) {
+  const price = parseFloat((Math.random() * 250 + 1).toFixed(2));
+  const stock = Math.floor(Math.random() * 100 + 1);
+  let product = createProduct(price);
+
+  const newProduct = {
     id: i + 1,
-    name: `${name} ${i % 6}`,
+    name: product.name,
     description,
     price,
     stock,
-    img,
-    category,
-    sellerId:Math.floor(Math.random() * (9 - 2 + 1)) + 2,
+    img: product.img,
+    categoryId: product.categoryId,
+    sellerId: Math.floor(Math.random() * (9 - 2 + 1)) + 2,
   };
-  data.push(product);
+  data.push(newProduct);
 }
 
-// console.log(data);
+// This will create a file called data.json in the src/data folder
+// The file will contain the data array in JSON format
 file.writeFileSync(
   "./src/data/data.json",
   JSON.stringify(data, null, 2),

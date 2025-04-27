@@ -5,7 +5,12 @@ import { useEffect } from "react";
 
 const LoginForm = () => {
   const { loginAuth, isAuthenticated } = useAuth();
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,10 +35,19 @@ const LoginForm = () => {
           <input
             type="email"
             id="email"
-            {...register("email")}
+            {...register("email", {
+              required: { value: true, message: "Email is required" },
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, // Simple email regex pattern
+                message: "Invalid email format",
+              },
+            })}
             placeholder="email@example.com"
             className="input"
           />
+          {errors.email && (
+            <span className="text-red-500 text-sm">{errors.email.message}</span>
+          )}
         </p>
         <p>
           <label htmlFor="password" className="block">
@@ -42,10 +56,21 @@ const LoginForm = () => {
           <input
             type="password"
             id="password"
-            {...register("password")}
+            {...register("password", {
+              required: { value: true, message: "Password is required" },
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters long",
+              },
+            })}
             placeholder="Password"
             className="input"
           />
+          {errors.password && (
+            <span className="text-red-500 text-sm">
+              {errors.password.message}
+            </span>
+          )}
         </p>
         <button
           type="submit"

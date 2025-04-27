@@ -20,12 +20,12 @@ const HomePage = () => {
 
   return (
     <>
+      <Sidebar />
       <Header />
       <Page className="my-10 md:flex md:items-start md:gap-5">
-        <Sidebar />
         <div className="w-full">
           <h1 className="text-3xl font-bold text-center mb-10">
-            Products less than $1000
+            Products less than $100
           </h1>
           <div
             className={`
@@ -35,7 +35,7 @@ const HomePage = () => {
             `}
           >
             {products
-              .filter((product) => product.price < 1000)
+              .filter((product) => product.price < 100)
               .map(({ id, name, price, img }) => (
                 <ProductCard
                   key={id}

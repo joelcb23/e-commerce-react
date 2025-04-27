@@ -1,4 +1,4 @@
-E-commerce React
+Tech-commerce React
 
 Este es un proyecto de E-commerce desarrollado con el stack MERN (MySQL, Express, React, Node.js). Está diseñado para ser una muestra de mis habilidades.
 Tecnologías utilizadas

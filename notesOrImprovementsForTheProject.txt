@@ -1,2 +1,0 @@
--cuando un usuario sea ha registrado, crear un apartado la sección de profile para que este pueda volverse vendedor cumpliendo ciertos requisitos (a tu criterio)
--crea el controller, endpoint en backend y el request en frontend para obtener los productos segun el vendedor (getProductsBySeller())

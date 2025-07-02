@@ -1,5 +1,5 @@
+.vscode
 node_modules
 .env
-.vs_code
-notesOrImprovementsForTheProject.txt
 e-commerce.session.sql
+notes.txt

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { parse } from "cookie";
-import config from "../config/config.js";
+import { SECRET_KEY } from "../config/config.js";
 import prisma from "../db.js";
 
 export const verifyToken = async (req, res, next) => {

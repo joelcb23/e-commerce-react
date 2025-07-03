@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import prisma from "../db.js";
-import config from "../config/config.js";
+import { SECRET_KEY } from "../config/config.js";
 
 export const getCart = async (req, res) => {
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
@@ -9,7 +9,7 @@ export const getCart = async (req, res) => {
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },
@@ -38,7 +38,7 @@ export const addItemToCart = async (req, res) => {
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },
@@ -94,7 +94,7 @@ export const removeItemFromCart = async (req, res) => {
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },
@@ -126,7 +126,7 @@ export const emptyCart = async (req, res) => {
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },

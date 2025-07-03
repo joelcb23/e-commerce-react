@@ -3,3 +3,5 @@ node_modules
 .env
 e-commerce.session.sql
 notes.txt
+
+/src/controllers/testRegister.js

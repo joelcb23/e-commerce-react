@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { serialize, parse } from "cookie";
 import prisma from "../db.js";
 import { encryptPass, comparePass } from "../utils/authJS.js";
-import config from "../config/config.js";
+import { SECRET_KEY } from "../config/config.js";
 
 export const register = async (req, res) => {
   const { name, email, password, role } = req.body;
@@ -26,13 +26,9 @@ export const register = async (req, res) => {
         role,
       },
     });
-    const token = jwt.sign(
-      { userId: user.id, role: user.role },
-      config.SECRET,
-      {
-        expiresIn: "30d",
-      }
-    );
+    const token = jwt.sign({ userId: user.id, role: user.role }, SECRET_KEY, {
+      expiresIn: "30d",
+    });
     const serialized = serialize("token", token, {
       httpOnly: false,
       secure: process.env.NODE_ENV !== "development",
@@ -67,7 +63,7 @@ export const login = async (req, res) => {
     // create token
     const token = jwt.sign(
       { userId: userFound.id, role: userFound.role },
-      config.SECRET,
+      SECRET_KEY,
       {
         expiresIn: "30d",
       }
@@ -93,7 +89,7 @@ export const verifyToken = async (req, res) => {
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: req.user.userId },

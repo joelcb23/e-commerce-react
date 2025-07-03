@@ -7,8 +7,8 @@ import authRoutes from "./routes/auth.routes.js";
 import productsRoutes from "./routes/product.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
 import orderRoutes from "./routes/order.routes.js";
+import { FRONTEND_URL, PORT } from "./config/config.js";
 
-const PORT = process.env.PORT || 4000;
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://e-commerce-react-qs3n.onrender.com",
+    origin: FRONTEND_URL,
     credentials: true,
   })
 );

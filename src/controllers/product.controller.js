@@ -1,6 +1,6 @@
 import cookie from "cookie";
 import jwt from "jsonwebtoken";
-import config from "../config/config.js";
+import { SECRET_KEY } from "../config/config.js";
 import prisma from "../db.js";
 
 // Controllers for products
@@ -68,7 +68,7 @@ export const createProduct = async (req, res) => {
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },
@@ -116,7 +116,7 @@ export const updateProduct = async (req, res) => {
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: Number(req.user.userId) },
@@ -152,7 +152,7 @@ export const deleteProduct = async (req, res) => {
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
   try {
-    const decoded = jwt.verify(token, config.SECRET);
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
 
     const userExists = await prisma.user.findUnique({

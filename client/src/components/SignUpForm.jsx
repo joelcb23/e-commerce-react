@@ -19,7 +19,6 @@ const SignUpForm = () => {
 
   const onSubmit = handleSubmit((data) => {
     registerAuth(data);
-    console.log(data);
     reset();
   });
   return (

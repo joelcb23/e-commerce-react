@@ -7,7 +7,7 @@ export const verifyToken = async (req, res, next) => {
   const token = parse(req.headers.cookie).token;
   if (!token) return res.status(401).json({ message: "No token provided" });
   try {
-    const decoded = await jwt.verify(token, config.SECRET);
+    const decoded = await jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     const userExists = await prisma.user.findUnique({
       where: { id: req.user.userId },

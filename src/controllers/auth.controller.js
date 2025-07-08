@@ -30,7 +30,7 @@ export const register = async (req, res) => {
       expiresIn: "30d",
     });
     const serialized = serialize("token", token, {
-      httpOnly: false,
+      httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       maxAge: 30 * 24 * 60 * 60,
       sameSite: "none",
@@ -70,7 +70,7 @@ export const login = async (req, res) => {
     );
     // set cookie
     const serialized = serialize("token", token, {
-      httpOnly: false,
+      httpOnly: true,
       secure: process.env.NODE_ENV !== "production",
       maxAge: 30 * 24 * 60 * 60,
       sameSite: "none",

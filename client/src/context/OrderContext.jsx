@@ -35,7 +35,6 @@ const OrderProvider = ({ children }) => {
   const getOrderById = async (id) => {
     try {
       const res = await getOrderByIdRequest(id);
-      // console.log(res.data.order);
       setOrder(res.data.order);
     } catch (error) {
       console.error(error);

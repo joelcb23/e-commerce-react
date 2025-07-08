@@ -93,7 +93,6 @@ export const ProductProvider = ({ children }) => {
   const loadCategories = async () => {
     try {
       const res = await getCategoriesRequest();
-      // console.log(res);
       setCategories(res.data.categories);
     } catch (error) {
       console.error(error);

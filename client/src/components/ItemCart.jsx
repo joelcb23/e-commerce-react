@@ -5,7 +5,6 @@ import { useCart } from "../context/CartContext";
 const ItemCart = ({ itemId, product, quantity }) => {
   const { removeItem } = useCart();
   const handleId = () => {
-    // console.log(itemId);
     removeItem(itemId);
   };
 

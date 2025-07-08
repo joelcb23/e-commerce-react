@@ -24,7 +24,6 @@ export const CartProvider = ({ children }) => {
   const getCart = async () => {
     try {
       const res = await getCartRequest();
-
       setItemsCart(res.data.cart);
     } catch (error) {
       console.error(error);
@@ -62,7 +61,6 @@ export const CartProvider = ({ children }) => {
   const removeItem = async (id) => {
     try {
       await removeItemFromCartRequest(id);
-      // console.log(itemsCart);
       setItemsCart(itemsCart.filter((item) => item.id !== id));
     } catch (error) {
       console.error(error);

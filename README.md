@@ -1,80 +1,139 @@
-Tech-commerce React
+# Tech-commerce React 🛒
 
-Este es un proyecto de E-commerce desarrollado con el stack MERN (MySQL, Express, React, Node.js). Está diseñado para ser una muestra de mis habilidades.
-Tecnologías utilizadas
+A full-stack app developed with the stack MERN (MySQL, Express, React, Node.js).
 
-    Backend:
+## Description
 
-        Node.js
+This is an e-commerce project for selling tech products. Users can register either as a customer or as a seller. They can browse different products for sale, view product categories, and add items to their shopping cart. The project was developed using technologies such as React, Express, MySQL, Prisma ORM, and Node.js.
 
-        Express.js
+## Technologies Used
 
-        JWT para la validación de tokens y autenticación
+- Backend:
 
-        Prisma como ORM para la gestión de la base de datos MySQL
+  - Node.js
 
-    Frontend:
+  - Express.js
 
-        React.js
+  - JWT for tokens and authentication validation
 
-        Tailwind para estilizado
+  - Prisma as an ORM for the management of the MySQL database
 
-    Base de Datos:
+- Frontend:
 
-        MySQL para almacenar los datos del usuario, productos y órdenes
+  - React.js
 
-Características
+  - Tailwind
 
-    Autenticación de Usuarios: Implementación de login y registro de usuarios utilizando JWT.
+- Base de Datos:
 
-    Gestión de Productos: Los vendedores pueden agregar, editar y eliminar productos.
+  - MySQL to store user data, products and orders
 
-    Carrito de Compras: Los usuarios pueden agregar productos al carrito y realizar un pedido.
+## Features
 
-    Rutas protegidas: Sólo los usuarios autenticados pueden acceder a ciertos endpoints, como la gestión de productos.
+- User Authentication: Implements user login and registration using JWT.
 
-Instalación
-Requisitos previos
+- Product Management: Sellers can add, edit, and delete products.
 
-    Node.js
+- Shopping Cart: Users can add products to their cart and place an order.
 
-    MySQL
+- Protected Routes: Only authenticated users can access certain endpoints, such as product management.
 
-    npm o yarn
+## Getting started
 
-Instrucciones de instalación
+### Requirements
 
-    Clonar el repositorio:
+- `Node.js`
 
-git clone https://github.com/joelcb23/e-commerce-react.git
-cd e-commerce-react
+- `MySQL`
 
-Instalar las dependencias: Para el backend:
+- `npm` o `yarn`
 
-npm install
+### Installation
 
-Para el frontend:
+1. Clone the repo:
 
-cd client
-npm install
+   ```bash
+   git clone https://github.com/joelcb23/e-commerce-react.git
+   cd e-commerce-react
+   ```
 
-Configurar la base de datos:
+2. Install the dependencies:
 
-    Crea una base de datos en MySQL llamada ecommerce_db.
+   - For the backend:
 
-    Configura las credenciales en el archivo .env del backend.
+     ```bash
+     npm install
+     ```
 
-Ejecutar el proyecto: Primero, ejecuta el backend:
+   - For the frontend:
 
-npm start
+     ```bash
+     cd client
+     npm install
+     ```
 
-Luego, ejecuta el frontend:
+3. Setting the credentials:
 
-    cd client
-    npm start
+   - Create the database and name it as `ecommerce_db`.
 
-    Abre tu navegador y ve a http://localhost:4000 para ver la aplicación en funcionamiento.
+     ```bash
+     mysql -u root -p < sql/init_db.sql
+     ```
 
-Contribuciones
+   - Set up the credentials in the backend `.env` file. The required variables are `DATABASE_URL`, `PORT`, `SECRET_KEY`, `FRONTEND_URL`.
 
-¡Las contribuciones son bienvenidas! Si tienes alguna mejora o corrección que hacer, no dudes en abrir un pull request.
+   - For the frontend, create a `.env` file and set `VITE_BACKEND_URL`
+
+4. Run the development servers:
+
+   - First, the backend:
+
+     ```bash
+     npm run dev
+     ```
+
+   - Then, the frontend:
+     ```bash
+     cd client
+     npm run dev
+     ```
+
+## API Endpoints
+
+### Auth
+
+- `POST /api/auth/register` Register a new user as customer or seller
+- `POST /api/auth/login` Login your account
+
+### Products
+
+- `GET /api/products/categories` Get all categories
+- `GET /api/products/category/{id}` Get products by category
+- `GET /api/products` Get all products
+- `GET /api/products/search` Get products by name
+- `GET /api/products/{id}` Get product
+- `POST /api/products` Create a new product
+- `PUT /api/products/{id}` Update product
+- `DELETE /api/products/{id}` Delete product
+
+### Orders
+
+- `GET /api/orders` Get all orders
+- `GET /api/orders/{id}` Get order
+- `POST /api/orders` Create a order
+
+### Cart
+
+- `GET /api/cart` Get items from cart
+
+## Visit the [live demo](https://e-commerce-react-1-n0yq.onrender.com)
+
+The app was deployed on [render.com](https://render.com)
+
+## Contribuciones
+
+Contributions are welcome! If you have any improvements or fixes, feel free to open a pull request.
+
+## LICENCSE
+
+[MIT LICENSE](LICENSE)

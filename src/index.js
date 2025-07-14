@@ -24,6 +24,11 @@ app.use(
   })
 );
 
+// Index route
+app.get("/", (req, res) => {
+  res.write("Hello world");
+});
+
 // Endpoints
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productsRoutes);

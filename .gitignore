@@ -1,6 +1,7 @@
-.vscode
+
 node_modules
 .env
 e-commerce.session.sql
 notes.txt
 testRegister.js
+.vscode

@@ -10,7 +10,7 @@ const CommentsSection = ({ comments }) => {
     }));
   return (
     <div
-      className={`flex flex-col gap-1 
+      className={`my-10 flex flex-col gap-1 
           md:w-2/3 md:mx-auto
           lg:w-1/2
         `}

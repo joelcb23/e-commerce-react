@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { useCart } from "../context/CartContext";
 import { useOrder } from "../context/OrderContext";
-import Page from "../components/Page";
 import ItemCart from "../components/ItemCart";
 import Modal from "../components/Modal";
 
@@ -60,13 +59,13 @@ const CartPage = () => {
     checkCart();
   }, []);
   return (
-    <Page className="my-28 md:my-52">
+    <section className="my-20">
       <h1 className="text-3xl font-bold text-center mb-4">Your Cart</h1>
       <div className="w-full md:w-2/3 mx-auto">
         <div className="flex flex-col gap-5 ">{renderCart()}</div>
         <div
           className={`${
-            itemsCart.length <= 0 ? "hidden" : "flex"
+            itemsCart?.length <= 0 ? "hidden" : "flex"
           } justify-between items-center my-4
           `}
         >
@@ -117,7 +116,7 @@ const CartPage = () => {
           </button>
         </form>
       </Modal>
-    </Page>
+    </section>
   );
 };
 

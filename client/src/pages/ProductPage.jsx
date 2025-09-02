@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
-import Page from "../components/Page";
 import CommentsSection from "../components/CommentsSection";
 
 const ProductPage = () => {
@@ -24,24 +23,26 @@ const ProductPage = () => {
   };
 
   return (
-    <Page
-      className={`my-28 md:my-52
-    `}
-    >
+    <>
       <div
         className={`
-        w-full flex flex-col gap-5
+        w-full flex flex-col gap-5 my-20
         md:flex-row md:items-start
     `}
       >
         <img
           src={product.img}
           alt={`${product.name}-image`}
-          className="w-full md:w-2/3"
+          className="w-full rounded md:w-2/3"
         />
         <div className="w-full md:w-2/3 flex flex-col justify-between gap-5">
           <h1 className="text-2xl font-semibold">{product.name}</h1>
-          <p className="text-xl">${product.price}</p>
+          <p className="text-xl">
+            $
+            {(product.price - (product.price * product.discount) / 100).toFixed(
+              2
+            )}
+          </p>
           <p className="text-xl text-neutral-600">On Stock: {product.stock}</p>
 
           <form
@@ -73,7 +74,7 @@ const ProductPage = () => {
       </div>
       <hr className="my-10 h-0.5" />
       <CommentsSection />
-    </Page>
+    </>
   );
 };
 

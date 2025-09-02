@@ -20,6 +20,9 @@ import ProfilePage from "./pages/ProfilePage";
 import ProductForm from "./pages/ProductForm";
 import OrdersPage from "./pages/OrdersPage";
 import OrderPage from "./pages/OrderPage";
+import PageContainer from "./pages/PageContainer";
+import Footer from "./components/Footer";
+import CategoriesBar from "./components/CategoriesBar";
 
 const App = () => {
   return (
@@ -29,43 +32,53 @@ const App = () => {
           <CartProvider>
             <OrderProvider>
               <Navbar />
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/coming-soon" element={<ComingSoon />} />
-                <Route path="/search" element={<ProductsPage />} />
-                <Route path="/products" element={<ProductsPage />} />
-                <Route path="/products/:productId" element={<ProductPage />} />
-                <Route
-                  path="/products/category/:categoryId"
-                  element={<ProductsPage />}
-                />
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/profile/orders" element={<OrdersPage />} />
+              <CategoriesBar />
+              <PageContainer>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/coming-soon" element={<ComingSoon />} />
+                  <Route path="/search" element={<ProductsPage />} />
+                  <Route path="/products" element={<ProductsPage />} />
                   <Route
-                    path="/profile/orders/:orderId"
-                    element={<OrderPage />}
+                    path="/products/:productId"
+                    element={<ProductPage />}
                   />
-                  <Route path="/profile/sell-item" element={<ProductForm />} />
-                  <Route path="/cart" element={<CartPage />} />
-                </Route>
-                <Route
-                  path="/login"
-                  element={
-                    <FormAuth>
-                      <LoginForm />
-                    </FormAuth>
-                  }
-                />
-                <Route
-                  path="/register"
-                  element={
-                    <FormAuth>
-                      <SignUpForm />
-                    </FormAuth>
-                  }
-                />
-              </Routes>
+                  <Route
+                    path="/products/category/:categoryId"
+                    element={<ProductsPage />}
+                  />
+                  <Route element={<ProtectedRoute />}>
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/profile/orders" element={<OrdersPage />} />
+                    <Route
+                      path="/profile/orders/:orderId"
+                      element={<OrderPage />}
+                    />
+                    <Route
+                      path="/profile/sell-item"
+                      element={<ProductForm />}
+                    />
+                    <Route path="/cart" element={<CartPage />} />
+                  </Route>
+                  <Route
+                    path="/login"
+                    element={
+                      <FormAuth>
+                        <LoginForm />
+                      </FormAuth>
+                    }
+                  />
+                  <Route
+                    path="/register"
+                    element={
+                      <FormAuth>
+                        <SignUpForm />
+                      </FormAuth>
+                    }
+                  />
+                </Routes>
+              </PageContainer>
+              <Footer />
             </OrderProvider>
           </CartProvider>
         </ProductProvider>

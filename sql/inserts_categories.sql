@@ -1,5 +1,6 @@
+USE `e-commerce-react-db`;
 INSERT INTO Category(name) VALUES('ACCESSORIES');
-INSERT INTO Category(name) VALUES('ACCESSORIES');
+-- INSERT INTO Category(name) VALUES('ACCESSORIES');
 INSERT INTO Category(name) VALUES('STORAGE');
 INSERT INTO Category(name) VALUES('HEADPHONES');
 INSERT INTO Category(name) VALUES('WEBCAMS');

@@ -59,7 +59,7 @@ export const getProductsByCategory = async (req, res) => {
 // This controller is used to create a new product in the database
 // It uses the request body to get the product data and the token from the request headers to get the user id
 export const createProduct = async (req, res) => {
-  const { name, description, price, stock, img, category } = req.body;
+  const { name, description, price, stock, img, category, discount } = req.body;
   if (!name || !description || !price || !stock || !img || !category)
     return res.status(400).json({ message: "Missing required fields" });
 
@@ -93,6 +93,7 @@ export const createProduct = async (req, res) => {
         price: parseFloat(price),
         stock: parseInt(stock, 10),
         img,
+        discount: Number(discount),
         ProductCategory: {
           create: {
             categoryId: categoryExists.id,
@@ -111,7 +112,7 @@ export const createProduct = async (req, res) => {
 // It uses the productId from the request params and the request body to get the product data
 export const updateProduct = async (req, res) => {
   const { productId } = req.params;
-  const { name, price, stock, img, category } = req.body;
+  const { name, price, stock, img, category, discount } = req.body;
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
   const token = cookies.token;
   if (!token) return res.status(401).json({ message: "No token provided" });
@@ -132,10 +133,11 @@ export const updateProduct = async (req, res) => {
       where: { id: productExists.id },
       data: {
         name,
-        price,
-        stock,
+        price: parseFloat(price),
+        stock: Number(stock),
         img,
         category,
+        discount: Number(discount),
       },
     });
     res.json({ product });

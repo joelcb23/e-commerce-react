@@ -1,12 +1,11 @@
-import Page from "../components/Page";
 import WarningSignal from "../assets/warning-signal.png";
 const ComingSoon = () => {
   return (
-    <Page className="my-28 md:my-52">
+    <section className="py-20">
       <img
         src={WarningSignal}
         alt="warning signal"
-        className="w-[80%] md:w-[30%] mx-auto"
+        className="w-[80%] md:w-[30%] mx-auto animate-pulse"
       />
       <div className="text-center text-2xl">
         <h1 className="text-6xl font-extrabold my-20">Coming soon</h1>
@@ -23,7 +22,7 @@ const ComingSoon = () => {
           Back to Home
         </a>
       </div>
-    </Page>
+    </section>
   );
 };
 

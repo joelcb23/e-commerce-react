@@ -5,8 +5,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 body {
-
-  @apply bg-neutral-200 min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
+  @apply bg-white min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-160px)];
 }
 
 .label {
@@ -15,4 +14,21 @@ body {
 
 .input {
   @apply bg-neutral-100 border border-neutral-400 w-full text-neutral-600 my-2 px-2 py-3 rounded-lg outline-none;
+}
+
+/* Appear animation */
+@keyframes appear {
+  from {
+    @apply opacity-0 scale-50;
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    @apply opacity-100 scale-100;
+    clip-path: inset(0 0 0 0);
+  }
+}
+.activate {
+  animation: appear 1s linear;
+  animation-timeline: scroll();
+  animation-range: entry 0% cover 40%;
 }

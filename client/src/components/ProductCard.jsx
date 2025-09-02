@@ -1,27 +1,52 @@
-import { useProduct } from "../context/ProductContext";
+import { BiHeart } from "react-icons/bi";
 
-const ProductCard = ({ id, name, price, description, img, handleId }) => {
-  const { search } = useProduct();
+const ProductCard = ({
+  id,
+  name,
+  price,
+  img,
+  handleId,
+  discount,
+  className,
+}) => {
   return (
     <div
       className={`
-        bg-white w-full h-[180px] overflow-hidden flex items-start gap-5 p-3 rounded-md shadow-md cursor-pointer shadow-gray-400 hover:shadow-lg hover:shadow-gray-500 
-         md:h-[380px]
-         ${search ? "md:flex-row" : "md:flex-col"}`}
-      onClick={() => handleId(id)}
+        bg-white border overflow-hidden relative flex flex-col items-start gap-5 p-3 hover:rounded-md cursor-pointer hover:shadow hover:shadow-gray-500 ${className}`}
+      onClick={() => {
+        handleId(id);
+        window.scrollTo(0, 0);
+      }}
     >
+      {discount > 0 && (
+        <span className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md">
+          -{discount}%
+        </span>
+      )}
       <img
         src={img}
-        alt={`${name}-image`}
-        className={`
-          w-full h-full object-cover rounded-md 
-          md:h-3/5
-          ${search && "md:w-3/5 md:h-full"}`}
+        alt={`${name}-image-${id}`}
+        className={`w-full h-2/3 object-cover rounded-md`}
       />
-      <div className={`w-full overflow-hidden ${search && "w-2/5"}`}>
-        <h1 className="my-3 text-xl font-extralight">{name}</h1>
-        <h2 className="my-3 text-2xl ">${price}</h2>
+      <div
+        className={`w-full h-1/3 overflow-hidden flex flex-col justify-around`}
+      >
+        <h1 className="my-3 text-lg font-extralight text-nowrap">{name}</h1>
+        <h2 className="my-3 text-lg font-semibold">
+          {discount ? (
+            <>
+              ${(price - (price * discount) / 100).toFixed(2)}
+              <span className="text-gray-400 line-through ml-2">${price}</span>
+            </>
+          ) : (
+            "$" + price
+          )}
+        </h2>
       </div>
+      <BiHeart
+        size={30}
+        className="absolute bottom-7 right-3 text-2xl p-1 rounded-full text-gray-400 hover:text-red-600 hover:bg-gray-200"
+      />
     </div>
   );
 };

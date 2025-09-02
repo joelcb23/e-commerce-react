@@ -5,3 +5,4 @@ e-commerce.session.sql
 notes.txt
 testRegister.js
 .vscode
+prisma/migrations/

@@ -15,7 +15,7 @@ import logo from "../assets/tech-commerce.webp";
 import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, seller, user } = useAuth();
   const {
     search,
     setSearch,
@@ -190,13 +190,18 @@ const Navbar = () => {
                 </span>
               </p>
               <ul
-                className={`bg-white border border-gray-200 rounded text-black p-2 flex-col gap-2  absolute top-full  left-0 w-full ${
+                className={`bg-white border border-gray-200 rounded text-black p-2 flex-col gap-2  absolute top-full  right-0 w-40 ${
                   options ? "flex" : "hidden"
                 }`}
               >
                 {!isAuthenticated && (
                   <>
-                    <li onClick={() => setOptions(false)}>
+                    <li
+                      onClick={() => {
+                        setShow(false);
+                        setOptions(false);
+                      }}
+                    >
                       <Link
                         to="/login"
                         className="hover:text-gray-700 py-2 w-full"
@@ -215,18 +220,86 @@ const Navbar = () => {
                   </>
                 )}
                 {isAuthenticated && (
-                  <>
-                    <li>Logout</li>
-                    <li onClick={() => setOptions(false)}>
-                      <Link
-                        to="/profile"
-                        className="hover:text-gray-700 py-2 w-full"
-                      >
-                        Profile
-                      </Link>
-                    </li>
-                  </>
+                  <li
+                    className="w-full"
+                    onClick={() => {
+                      setShow(false);
+                      setOptions(false);
+                    }}
+                  >
+                    <ul className="w-full flex flex-col gap-2">
+                      <li className="w-full">
+                        <Link
+                          to={"/profile"}
+                          className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                        >
+                          Account
+                        </Link>
+                      </li>
+                      {seller === "SELLER" && (
+                        <>
+                          <li className="w-full">
+                            <Link
+                              to={`/profile/dashboard`}
+                              className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                            >
+                              Dashboard
+                            </Link>
+                          </li>
+                          <li className="w-full">
+                            <Link
+                              to={"/profile/sell-item"}
+                              className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                            >
+                              Sell Item
+                            </Link>
+                          </li>
+                        </>
+                      )}
+                      <li className="w-full">
+                        <Link
+                          to={"/profile/orders"}
+                          className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                        >
+                          Orders
+                        </Link>
+                      </li>
+                      <li className="w-full">
+                        <Link
+                          to={"/coming-soon"}
+                          className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                        >
+                          Wishlist
+                        </Link>
+                      </li>
+                      <li className="w-full">
+                        <Link
+                          to={"/coming-soon"}
+                          className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                        >
+                          Change Password
+                        </Link>
+                      </li>
+                      <li className="w-full">
+                        <Link
+                          to={"/coming-soon"}
+                          className="w-full p-2 hover:bg-gray-200 rounded transition duration-500 ease-in-out"
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
                 )}
+                {/*<li>Logout</li>
+                <li onClick={() => setOptions(false)}>
+                  <Link
+                    to="/profile"
+                    className="hover:text-gray-700 py-2 w-full"
+                  >
+                    Profile
+                  </Link>
+                </li>*/}
               </ul>
             </div>
           </li>

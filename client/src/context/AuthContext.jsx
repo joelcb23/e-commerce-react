@@ -6,7 +6,6 @@ import {
   verifyRequest,
 } from "../api/auth.api";
 import Cookies from "js-cookie";
-import { set } from "react-hook-form";
 
 export const AuthContext = createContext();
 export const useAuth = () => {

@@ -23,6 +23,7 @@ import OrderPage from "./pages/OrderPage";
 import PageContainer from "./pages/PageContainer";
 import Footer from "./components/Footer";
 import CategoriesBar from "./components/CategoriesBar";
+import DashboardPage from "./pages/DashboardPage";
 
 const App = () => {
   return (
@@ -49,6 +50,10 @@ const App = () => {
                   />
                   <Route element={<ProtectedRoute />}>
                     <Route path="/profile" element={<ProfilePage />} />
+                    <Route
+                      path="/profile/dashboard"
+                      element={<DashboardPage />}
+                    />
                     <Route path="/profile/orders" element={<OrdersPage />} />
                     <Route
                       path="/profile/orders/:orderId"

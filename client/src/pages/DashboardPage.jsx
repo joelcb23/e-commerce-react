@@ -28,18 +28,18 @@ const DashboardPage = () => {
     { name: "LAPTOPS", value: 254, fill: "#300DFF" },
   ];
 
-  const becomesByMonth = [
-    { name: "Jan", becomes: 3385, amt: 2210 },
-    { name: "Feb", becomes: 3456, amt: 2290 },
-    { name: "Mar", becomes: 3754, amt: 2000 },
-    { name: "Apr", becomes: 2954, amt: 2181 },
-    { name: "May", becomes: 3544, amt: 2500 },
-    { name: "Jun", becomes: 3214, amt: 2100 },
-    { name: "Jul", becomes: 4234, amt: 2100 },
-    { name: "Aug", becomes: 3874, amt: 2100 },
-    { name: "Sep", becomes: 4563, amt: 2100 },
-    { name: "Oct", becomes: 4685, amt: 2100 },
-    { name: "Nov", becomes: 4253, amt: 2100 },
+  const incomesByMonth = [
+    { name: "Jan", incomes: 3385, amt: 2210 },
+    { name: "Feb", incomes: 3456, amt: 2290 },
+    { name: "Mar", incomes: 3754, amt: 2000 },
+    { name: "Apr", incomes: 2954, amt: 2181 },
+    { name: "May", incomes: 3544, amt: 2500 },
+    { name: "Jun", incomes: 3214, amt: 2100 },
+    { name: "Jul", incomes: 4234, amt: 2100 },
+    { name: "Aug", incomes: 3874, amt: 2100 },
+    { name: "Sep", incomes: 4563, amt: 2100 },
+    { name: "Oct", incomes: 4685, amt: 2100 },
+    { name: "Nov", incomes: 4253, amt: 2100 },
   ];
   return (
     <div className={`my-20`}>
@@ -51,7 +51,7 @@ const DashboardPage = () => {
         <div className={`flex flex-col gap-5 order-2 md:order-1 md:w-1/4`}>
           <Element className={`flex flex-col gap-2 py-10`}>
             <h2 className="text-3xl font-bold">$1,2652</h2>
-            <p className={`text-xl font-semibold`}>Total Becomes</p>
+            <p className={`text-xl font-semibold`}>Total Incomes</p>
             <p>
               <span className={`text-red-500 font-semibold`}>0.27%</span> - was
               1,770.5 last week
@@ -98,7 +98,7 @@ const DashboardPage = () => {
         {/* Main Section */}
         <div className={`flex flex-col gap-5 order-1 md:order-2 md:w-3/4`}>
           <Element className={`flex flex-col py-10`}>
-            <h2 className={`text-lg text-left font-bold mb-5`}>Becomes</h2>
+            <h2 className={`text-lg text-left font-bold mb-5`}>Incomes</h2>
             <AreaChart
               style={{
                 width: "100%",
@@ -107,7 +107,7 @@ const DashboardPage = () => {
                 aspectRatio: 1.618,
               }}
               responsive
-              data={becomesByMonth}
+              data={incomesByMonth}
               margin={{
                 top: 10,
                 right: 0,
@@ -122,7 +122,7 @@ const DashboardPage = () => {
               <Legend />
               <Area
                 type="monotone"
-                dataKey="becomes"
+                dataKey="incomes"
                 stroke="#0097a7"
                 activeDot={{ r: 8 }}
                 fill="#0097a7"
